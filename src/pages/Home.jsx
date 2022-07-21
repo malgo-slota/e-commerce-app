@@ -1,7 +1,9 @@
+import BestRated from "../components/BestRated";
+
 function Home () {
     return (
         <div>
-            Home
+            <BestRated />
         </div>
         
     );
