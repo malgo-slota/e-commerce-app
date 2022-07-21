@@ -5,10 +5,11 @@
       rgb(156, 166, 86)
   white 
       rgb(242, 242, 242)
-  light grey 
-      rgb(RGB 89, 89, 89) 
-  dark gray 
-      rgb(38, 38, 38) */
+  lighter grey 
+      rgb(20,22,38) 
+  darker gray 
+      rgb(16,17,30) */
+      
 
 *, *::before, *::after {
   margin: 0;
