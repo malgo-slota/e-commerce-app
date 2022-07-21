@@ -1,3 +1,15 @@
+/* color palette 
+  warm green 
+      rgb(160, 191, 48)
+  cold green 
+      rgb(156, 166, 86)
+  white 
+      rgb(242, 242, 242)
+  light grey 
+      rgb(RGB 89, 89, 89) 
+  dark gray 
+      rgb(38, 38, 38) */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
