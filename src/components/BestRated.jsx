@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import '@splidejs/splide/css';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import styled from 'styled-components';
+import Rating from '@mui/material/Rating';
 
 function BestRated () {
     const [bestRated, setBestRated] = useState([]);
@@ -34,7 +35,7 @@ function BestRated () {
                             <ItemWrapper>
                                 <img src={item.image} alt={item.title}/>
                                 <Info>
-                                    <p>{item.rating.rate}</p>
+                                    <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
                                     <p>{item.price}$</p>
                                 </Info>
                             </ItemWrapper>
@@ -64,7 +65,7 @@ const ItemWrapper = styled.div`
 const Info = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     width: 100%;
     font-size: 1.2rem;
     position: absolute;
