@@ -5,6 +5,7 @@ import {Route, Routes, useLocation} from 'react-router-dom';
 import Home from './Home.jsx';
 import Product from "./Product.jsx";
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 function Pages() {
   const location = useLocation();
@@ -14,6 +15,7 @@ function Pages() {
         <Route path="/" element={<Home />}/>
         <Route path="/product/:id" element={<Product />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/signup" element={<SignUp/>}/>
       </Routes>      
   );
 }

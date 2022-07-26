@@ -1,14 +1,21 @@
 import React from "react";
 import { BsPerson, BsLock } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 
-function Login () {
+function SignUp () {
     return (
-        <Wrapper>
-            <h1>Welcome back!</h1>
+       <Wrapper>
+           <h1>Create user account</h1>
             <FormStyle>
+                <div>
+                    <BsPerson />
+                    <input type="text" placeholder="FIRST NAME" />
+                </div>   
+                <div>
+                    <BsPerson />
+                    <input type="text" placeholder="LAST NAME" />
+                </div>    
                 <div>
                     <AiOutlineMail />
                     <input type="email" placeholder="EMAIL" />
@@ -17,14 +24,12 @@ function Login () {
                     <BsLock />
                     <input type="password" placeholder="PASSWORD" />
                 </div>
-                <input type="submit" value="Log in"/>
+                <div>
+                    <BsLock />
+                    <input type="password" placeholder="REPEAT PASSWORD" />
+                </div>        
+                <input type="submit" value="Sign up"/>
             </FormStyle>
-            <div>
-                <p>Don't have an account?</p>
-                <NavLink to={"/signup"}>
-                    <span>Sign up</span>
-                </NavLink>
-            </div>
         </Wrapper>
     );
 }
@@ -38,15 +43,6 @@ const Wrapper = styled.div`
         color: rgba(20,22,38, 0.6);
         text-align: center;
         margin-bottom: 1.4rem;
-    }
-    div {
-        margin-top: 1.4rem;
-        display: flex;
-        gap: 0.4rem;
-        justify-content: center;
-        a {
-            color: rgb(160, 191, 48);
-        }
     }
 `;
 
@@ -90,4 +86,4 @@ const FormStyle = styled.form`
     }   
 `;
 
-export default Login;
+export default SignUp;
