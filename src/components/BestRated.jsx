@@ -20,6 +20,7 @@ function BestRated () {
     }
     return (
         <Wrapper>
+            <h2>Top rated products</h2>
             <Splide options={{
                 type: 'loop',
                 gap: '0.5rem',
@@ -35,8 +36,11 @@ function BestRated () {
                             <ItemWrapper>
                                 <img src={item.image} alt={item.title}/>
                                 <Info>
-                                    <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
                                     <p>{item.price}$</p>
+                                    <RatingWrapper>
+                                        <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
+                                        <p>({item.rating.count})</p>
+                                    </RatingWrapper>
                                 </Info>
                             </ItemWrapper>
                         </SplideSlide>
@@ -49,27 +53,46 @@ function BestRated () {
 
 const Wrapper = styled.div`
     margin-top: 6rem;
+    h2 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+    }
 `;
 
 const ItemWrapper = styled.div`
+    margin-top: 2rem;
     position: relative;
     min-height: 25rem; 
     img{
         position: absolute;
         object-fit: scale-down;
-        height: 90%;   
+        height: 80%;   
         width: 100%; 
     }
 `;
 
 const Info = styled.div`
     display: flex;
-    justify-content: space-between;
+    gap: 0.4rem;
+    flex-direction: column;
     padding: 0.5rem 1rem;
     width: 100%;
     font-size: 1.2rem;
     position: absolute;
     bottom: 0;
+    p {
+        font-size: 1.4rem;
+    }
+`;
+
+const RatingWrapper = styled.div`
+  display: flex;
+ 
+  p {
+    opacity: 0.5;
+  }
 `;
 
 export default BestRated;

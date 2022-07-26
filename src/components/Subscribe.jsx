@@ -31,6 +31,11 @@ const Wrapper = styled.div`
             border: none;
             outline: none;
             background: rgb(20,22,38);
+            color: rgb(242, 242,242);
+            ::placeholder{
+                color: rgb(242,242,242);
+                opacity: 0.3;
+            }
         }
         input[type="submit"] {
             text-transform: uppercase;
@@ -38,7 +43,9 @@ const Wrapper = styled.div`
             padding: 1rem;
             border: none;
             background: rgb(160, 191, 48);
-            
+            color: rgb(242, 242,242);
+            font-size: 1.2rem;
+            letter-spacing: 0.1rem;
         }
     }
 `;
