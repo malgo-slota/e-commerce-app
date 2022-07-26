@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 import '@splidejs/splide/css';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import styled from 'styled-components';
@@ -34,14 +35,16 @@ function BestRated () {
                     return (
                         <SplideSlide key={item.id}>
                             <ItemWrapper>
-                                <img src={item.image} alt={item.title}/>
-                                <Info>
-                                    <p>{item.price}$</p>
-                                    <RatingWrapper>
-                                        <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
-                                        <p>({item.rating.count})</p>
-                                    </RatingWrapper>
-                                </Info>
+                                <Link to={`/product/${item.id}`}>
+                                    <img src={item.image} alt={item.title}/>
+                                </Link>
+                                    <Info>
+                                        <p>{item.price}$</p>
+                                        <RatingWrapper>
+                                            <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
+                                            <p>({item.rating.count})</p>
+                                        </RatingWrapper>
+                                    </Info>
                             </ItemWrapper>
                         </SplideSlide>
                     );
@@ -64,7 +67,7 @@ const Wrapper = styled.div`
 const ItemWrapper = styled.div`
     margin-top: 2rem;
     position: relative;
-    min-height: 25rem; 
+    min-height: 25rem;
     img{
         position: absolute;
         object-fit: scale-down;

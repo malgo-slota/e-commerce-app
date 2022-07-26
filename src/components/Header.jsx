@@ -2,13 +2,14 @@ import React from "react";
 import styled from 'styled-components';
 import {BsSearch, BsPerson, BsCart } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { NavLink } from 'react-router-dom';
 
 function Header () {
     return (
         <Nav>
-            <Logo>
+            <Logo to="/">
                 Store
-            </Logo>
+            </Logo>   
             <NavLinks>
                 <div>
                     <button>
@@ -38,11 +39,12 @@ const Nav = styled.div`
   margin: 0.4rem;
 `;
 
-const Logo = styled.div`
+const Logo = styled(NavLink)`
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
     color: rgb(160, 191, 48);
     letter-spacing: 0.1rem;
+    text-decoration: none;
 `;
 
 const NavLinks = styled.div`
