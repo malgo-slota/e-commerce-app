@@ -23,9 +23,9 @@ function Header () {
                     <a href='/'>
                         <BsCart />
                     </a>
-                    <a href='/'>
+                    <NavLink to={"/login"}>
                         <BsPerson />
-                    </a>
+                    </NavLink>
                 </div>  
             </NavLinks> 
         </Nav>
