@@ -1,5 +1,5 @@
 import React from "react";
-import { BsPerson, BsLock } from 'react-icons/bs';
+import { BsLock } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";

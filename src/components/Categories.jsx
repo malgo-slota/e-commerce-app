@@ -3,29 +3,39 @@ import styled from 'styled-components';
 
 function Categories () {
     return (
-        <Grid>
-            <Category>
-                <img src="images/pexels-andrea-piacquadio-774909.jpg" alt="smiling women"/>
-                <button>Women's clothing</button>
-            </Category>
-            <Category>
-                <img src="images/pexels-jackson-david-3147528.jpg" alt="smiling women"/>
-                <button>Men's clothing</button>
-            </Category>
-            <Category>
-                <img src="images/pexels-ron-lach-10121693.jpg" alt="smiling women"/>
-                <button>Jewellery</button>
-            </Category>
-            <Category>
-                <img src="images/pexels-athena-2582935.jpg" alt="smiling women"/>
-                <button>Electronics</button>
-            </Category>
-        </Grid> 
+        <Wrapper>
+            <h2>Shop by category</h2>
+            <Grid>
+                <Category>
+                    <img src="images/pexels-andrea-piacquadio-774909.jpg" alt="smiling women"/>
+                    <button>Women's clothing</button>
+                </Category>
+                <Category>
+                    <img src="images/pexels-jackson-david-3147528.jpg" alt="smiling women"/>
+                    <button>Men's clothing</button>
+                </Category>
+                <Category>
+                    <img src="images/pexels-ron-lach-10121693.jpg" alt="smiling women"/>
+                    <button>Jewellery</button>
+                </Category>
+                <Category>
+                    <img src="images/pexels-athena-2582935.jpg" alt="smiling women"/>
+                    <button>Electronics</button>
+                </Category>
+            </Grid> 
+        </Wrapper>
     );
 }
 
-const Grid = styled.div`
+const Wrapper = styled.div`
     margin: 2rem 0;
+    h2 {
+        margin: 1rem 3rem;
+        letter-spacing: 0.1rem;
+    }
+`;
+
+const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
