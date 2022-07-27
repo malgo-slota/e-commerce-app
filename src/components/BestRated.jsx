@@ -4,6 +4,8 @@ import '@splidejs/splide/css';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import styled from 'styled-components';
 import Rating from '@mui/material/Rating';
+import { MdAddShoppingCart, MdRemoveRedEye } from 'react-icons/md';
+
 
 function BestRated () {
     const [bestRated, setBestRated] = useState([]);
@@ -35,16 +37,24 @@ function BestRated () {
                     return (
                         <SplideSlide key={item.id}>
                             <ItemWrapper>
-                                <Link to={`/product/${item.id}`}>
-                                    <img src={item.image} alt={item.title}/>
-                                </Link>
-                                    <Info>
-                                        <p>{item.price}$</p>
-                                        <RatingWrapper>
-                                            <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
-                                            <p>({item.rating.count})</p>
-                                        </RatingWrapper>
-                                    </Info>
+                                <img src={item.image} alt={item.title}/>
+                                <ButtonsWrapper>
+                                    <Link to={`/product/${item.id}`}>
+                                        <button>
+                                            <MdRemoveRedEye />
+                                        </button>
+                                    </Link>
+                                    <button>
+                                        <MdAddShoppingCart />
+                                    </button>
+                                </ButtonsWrapper>
+                                <Info>
+                                    <p>{item.price}$</p>
+                                    <RatingWrapper>
+                                        <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
+                                        <p>({item.rating.count})</p>
+                                    </RatingWrapper>
+                                </Info>
                             </ItemWrapper>
                         </SplideSlide>
                     );
@@ -97,5 +107,32 @@ const RatingWrapper = styled.div`
     opacity: 0.5;
   }
 `;
+
+const ButtonsWrapper = styled.div`
+    width: 100%;
+    height: 80%;
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    :hover {
+            opacity: 1;
+        }
+    button {
+        border-radius: 50%;
+        border: none;
+        height: 3.5rem;
+        width: 3.5rem;
+        svg {
+            font-size: 1.6rem;
+        }  
+        :hover{
+            opacity: 1;
+        }
+    }
+`;
+
 
 export default BestRated;
