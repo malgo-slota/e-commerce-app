@@ -67,10 +67,8 @@ function BestRated () {
 const Wrapper = styled.div`
     margin-top: 6rem;
     h2 {
-        text-align: center;
-        font-size: 1.6rem;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
+        margin: 1rem 3rem;
+        letter-spacing: 0.1rem;
     }
 `;
 
