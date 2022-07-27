@@ -7,6 +7,7 @@ import Product from "./Product.jsx";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ShopSection from "./ShopSection.jsx";
+import CategoryShopSection from "./CategoryShopSection";
 
 function Pages() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function Pages() {
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/products" element={<ShopSection/>}/>
+        <Route path="/products/category/:category" element={<CategoryShopSection/>}/>
       </Routes>      
   );
 }
