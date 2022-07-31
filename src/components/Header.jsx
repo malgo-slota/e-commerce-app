@@ -1,8 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
-import {BsSearch, BsPerson, BsCart } from 'react-icons/bs';
+import { BsPerson, BsCart } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs';
 
 function Header () {
     return (
@@ -11,22 +12,17 @@ function Header () {
                 Store
             </Logo>   
             <NavLinks>
-                <div>
-                    <button>
-                        <GiHamburgerMenu />
-                    </button>
-                </div>
-                <div>
-                    <a href='/'>
-                        <BsSearch />
-                    </a>
-                    <a href='/'>
-                        <BsCart />
-                    </a>
-                    <NavLink to={"/login"}>
-                        <BsPerson />
-                    </NavLink>
-                </div>  
+                <button>
+                    <GiHamburgerMenu />
+                </button>
+                <NavLink to={"/search"}>
+                    <BsSearch />
+                </NavLink>
+                <BsCart />
+                <NavLink to={"/login"}>
+                    <BsPerson />
+                </NavLink>
+                
             </NavLinks> 
         </Nav>
     );
@@ -49,7 +45,6 @@ const Logo = styled(NavLink)`
 
 const NavLinks = styled.div`
   display: flex;
-  align-self: flex-end;
   button {
       border: none;
       background: none;

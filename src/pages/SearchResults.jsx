@@ -1,0 +1,131 @@
+import React, { useState, useEffect } from "react";
+import styled from 'styled-components';
+import SearchBar from "../components/SearchBar";
+import { MdAddShoppingCart, MdRemoveRedEye } from 'react-icons/md';
+import Rating from '@mui/material/Rating';
+import { Link } from 'react-router-dom';
+
+
+function SearchResults () {
+    const [input, setInput] = useState("");
+    const [searchResult, setSearchResult] = useState([]);
+   
+    const getSearchResult = async () => {
+        const api = await fetch(
+                `https://fakestoreapi.com/products`
+        );
+        const data = await api.json();
+        setSearchResult(data);
+    };
+    
+    useEffect(() => {
+        getSearchResult();
+    },[input]);
+
+    return (
+        <div>
+            <SearchBar input={input} 
+                        setInput={setInput} />
+            <Wrapper>
+                {searchResult.map(item => {
+                    const tags = item.title.trim().toLowerCase().split(" ");
+                    return (
+                        <div>
+                            {tags.filter(word => word === input.toLowerCase()).map(()=> {
+                                return(
+                                    <ItemWrapper>
+                                        <img src={item.image} alt={item.title}/>
+                                        <ButtonsWrapper>
+                                            <Link to={`/product/${item.id}`}>
+                                                <button>
+                                                    <MdRemoveRedEye />
+                                                </button>
+                                            </Link>
+                                            <button>
+                                                <MdAddShoppingCart />
+                                            </button>
+                                        </ButtonsWrapper>
+                                        <Info>
+                                            <h3>{item.title}</h3>
+                                            <p>{item.price}$</p>
+                                            <RatingWrapper>
+                                                <Rating name="read-only" value={item.rating.rate} precision={0.5} readOnly />
+                                                <p>({item.rating.count})</p>
+                                            </RatingWrapper>
+                                        </Info>
+                                    </ItemWrapper>       
+                                );
+                            })}
+                        </div>
+                    );
+                })}
+            </Wrapper>
+        </div>
+    );
+}
+
+const Wrapper = styled.div`
+  margin: 0rem 1rem; 
+`;
+
+const ItemWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    min-height: 20rem;
+    img{
+        object-fit: scale-down;
+        height: 50%;   
+        width: 50%; 
+    }
+`;
+
+const Info = styled.div`
+    display: flex;
+    gap: 0.4rem;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1.2rem;
+    p {
+        font-size: 1.4rem;
+        align-self: center;
+    }
+`;
+
+const RatingWrapper = styled.div`
+  display: flex;
+  transform: scale(0.8);
+  p {
+    opacity: 0.5;
+  }
+`;
+
+const ButtonsWrapper = styled.div`
+    width: 50%;
+    height: 80%;
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    :hover {
+            opacity: 1;
+        }
+    button {
+        border-radius: 50%;
+        border: none;
+        height: 3.5rem;
+        width: 3.5rem;
+        svg {
+            font-size: 1.6rem;
+        }  
+        :hover{
+            opacity: 1;
+        }
+    }
+`;
+
+export default SearchResults;

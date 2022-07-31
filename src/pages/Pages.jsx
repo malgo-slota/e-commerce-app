@@ -9,6 +9,7 @@ import SignUp from "./SignUp";
 import ShopSection from "./ShopSection.jsx";
 import CategoryShopSection from "./CategoryShopSection";
 import NotFound from "../components/NotFound.jsx";
+import SearchResults from "./SearchResults.jsx";
 
 function Pages() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function Pages() {
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/products" element={<ShopSection/>}/>
           <Route path="/products/category/:category" element={<CategoryShopSection/>}/>
+          <Route path="/search" element={<SearchResults />}/>
           <Route path="*" element={<NotFound/>}/>
       </Routes>      
   );
