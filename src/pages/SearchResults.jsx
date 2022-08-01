@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import SearchBar from "../components/SearchBar";
-import { MdAddShoppingCart, MdRemoveRedEye } from 'react-icons/md';
 import Rating from '@mui/material/Rating';
-import { Link } from 'react-router-dom';
-
+//components
+import SearchBar from "../components/SearchBar";
+import Buttons from '../components/Buttons';
 
 function SearchResults () {
     const [input, setInput] = useState("");
@@ -35,16 +34,7 @@ function SearchResults () {
                                 return(
                                     <ItemWrapper>
                                         <img src={item.image} alt={item.title}/>
-                                        <ButtonsWrapper>
-                                            <Link to={`/product/${item.id}`}>
-                                                <button>
-                                                    <MdRemoveRedEye />
-                                                </button>
-                                            </Link>
-                                            <button>
-                                                <MdAddShoppingCart />
-                                            </button>
-                                        </ButtonsWrapper>
+                                        <Buttons id={item.id}/>
                                         <Info>
                                             <h3>{item.title}</h3>
                                             <p>{item.price}$</p>
@@ -100,32 +90,6 @@ const RatingWrapper = styled.div`
   p {
     opacity: 0.5;
   }
-`;
-
-const ButtonsWrapper = styled.div`
-    width: 50%;
-    height: 80%;
-    display: flex;
-    gap: 0.5rem;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    :hover {
-            opacity: 1;
-        }
-    button {
-        border-radius: 50%;
-        border: none;
-        height: 3.5rem;
-        width: 3.5rem;
-        svg {
-            font-size: 1.6rem;
-        }  
-        :hover{
-            opacity: 1;
-        }
-    }
 `;
 
 export default SearchResults;

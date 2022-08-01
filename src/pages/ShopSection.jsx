@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Rating from '@mui/material/Rating';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { MdAddShoppingCart, MdRemoveRedEye } from 'react-icons/md';
+//components
+import Buttons from '../components/Buttons';
+
 
 function ShopSection () {
 
@@ -28,16 +29,7 @@ function ShopSection () {
                     return (
                         <ItemWrapper>
                             <img src={product.image} alt={product.title}/>
-                            <ButtonsWrapper>
-                                <Link to={`/product/${product.id}`}>
-                                    <button>
-                                        <MdRemoveRedEye />
-                                    </button>
-                                </Link>
-                                <button>
-                                    <MdAddShoppingCart />
-                                </button>
-                            </ButtonsWrapper>
+                            <Buttons id={product.id} />
                             <Info>
                                 <p>{product.price}$</p>
                                 <RatingWrapper>
@@ -94,32 +86,5 @@ const RatingWrapper = styled.div`
     opacity: 0.5;
   }
 `;
-
-const ButtonsWrapper = styled.div`
-    width: 100%;
-    height: 80%;
-    display: flex;
-    gap: 0.5rem;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    :hover {
-            opacity: 1;
-        }
-    button {
-        border-radius: 50%;
-        border: none;
-        height: 3.5rem;
-        width: 3.5rem;
-        svg {
-            font-size: 1.6rem;
-        }  
-        :hover{
-            opacity: 1;
-        }
-    }
-`;
-
 
 export default ShopSection;
