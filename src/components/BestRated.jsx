@@ -6,7 +6,6 @@ import Rating from '@mui/material/Rating';
 //components
 import Buttons from '../components/Buttons';
 
-
 function BestRated () {
     const [bestRated, setBestRated] = useState([]);
 
@@ -38,7 +37,7 @@ function BestRated () {
                         <SplideSlide key={item.id}>
                             <ItemWrapper>
                                 <img src={item.image} alt={item.title}/>
-                                <Buttons id={item.id}/>
+                                <Buttons id={item.id} title={item.title} price={item.price}/>
                                 <Info>
                                     <p>{item.price}$</p>
                                     <RatingWrapper>

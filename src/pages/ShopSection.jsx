@@ -29,7 +29,7 @@ function ShopSection () {
                     return (
                         <ItemWrapper>
                             <img src={product.image} alt={product.title}/>
-                            <Buttons id={product.id} />
+                            <Buttons id={product.id} title={product.title} price={product.price}/>
                             <Info>
                                 <p>{product.price}$</p>
                                 <RatingWrapper>

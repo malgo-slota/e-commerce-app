@@ -1,8 +1,11 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext} from "react";
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import CartContext from '../CartContext';
 
 function Product() {
+    const { addToCart } = useContext(CartContext);
+
     const [product, setProduct] = useState({});
     let params = useParams();
   
@@ -26,7 +29,7 @@ function Product() {
                 {product.description}
             </Desc>
             <p>{product.price}$</p>
-            <button>
+            <button onClick={() => addToCart(product.title, product.price)}>
                 Add to cart
             </button>
        </Wrapper>

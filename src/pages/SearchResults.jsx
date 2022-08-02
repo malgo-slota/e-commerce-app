@@ -34,7 +34,7 @@ function SearchResults () {
                                 return(
                                     <ItemWrapper>
                                         <img src={item.image} alt={item.title}/>
-                                        <Buttons id={item.id}/>
+                                        <Buttons id={item.id} title={item.title} price={item.price}/>
                                         <Info>
                                             <h3>{item.title}</h3>
                                             <p>{item.price}$</p>
