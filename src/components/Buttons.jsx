@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { MdAddShoppingCart, MdRemoveRedEye } from 'react-icons/md';
 import styled from 'styled-components';
 
-function Buttons ( { id, title, price }) {
+function Buttons ( { id, image, title, price }) {
 
     const { addToCart } = useContext(CartContext);
+
     return (
         <ButtonsWrapper>
             <Link to={`/product/${id}`}>
@@ -14,7 +15,7 @@ function Buttons ( { id, title, price }) {
                     <MdRemoveRedEye />
                 </button>
             </Link>
-            <button onClick={() => addToCart(title,price)}>
+            <button onClick={() => addToCart(id,image,title,price)}>
                 <MdAddShoppingCart />
             </button>
         </ButtonsWrapper>

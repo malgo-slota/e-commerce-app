@@ -37,7 +37,7 @@ function BestRated () {
                         <SplideSlide key={item.id}>
                             <ItemWrapper>
                                 <img src={item.image} alt={item.title}/>
-                                <Buttons id={item.id} title={item.title} price={item.price}/>
+                                <Buttons id={item.id} image={item.image} title={item.title} price={item.price}/>
                                 <Info>
                                     <p>{item.price}$</p>
                                     <RatingWrapper>

@@ -28,9 +28,9 @@ function CategoryShopSection () {
             <Grid>
                   {category.map((product) => {
                     return (
-                        <ItemWrapper>
+                        <ItemWrapper key={product.id}>
                             <img src={product.image} alt={product.title}/>
-                            <Buttons id={product.id} title={product.title} price={product.price}/>
+                            <Buttons id={product.id} image={product.image} title={product.title} price={product.price}/>
                             <Info>
                                 <p>{product.price}$</p>
                                 <RatingWrapper>
