@@ -32,7 +32,7 @@ function SearchResults () {
                         <div>
                             {tags.filter(word => word === input.toLowerCase()).map(()=> {
                                 return(
-                                    <ItemWrapper>
+                                    <ItemWrapper key={item.id}>
                                         <img src={item.image} alt={item.title}/>
                                         <Buttons id={item.id} image={item.image} title={item.title} price={item.price}/>
                                         <Info>
