@@ -38,9 +38,11 @@ const Wrapper = styled.footer`
         color: rgb(20,22,38);
         line-height: 2rem;
         display: inline-block;
+        transition: 0.1s linear;
     }
     a:hover {
         color: rgb(160, 191, 48);
+        transform: scale(1.1);
     }
 `;
 
@@ -57,11 +59,13 @@ const SocialMedia = styled.div`
     display: flex;
     justify-content: center;
     gap: 1rem;
+    transition: 0.1s linear;
     svg {
         font-size: 1.2rem;
     }
     svg:hover{
         color: rgb(160, 191, 48);
+        transform: scale(1.4);
     }
 `;
 

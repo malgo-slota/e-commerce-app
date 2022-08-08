@@ -32,6 +32,11 @@ const Wrapper = styled.form`
       font-size: 2.1rem;
       color: white;
       background: rgb(160, 191, 48);
+      transition: 0.4s linear;
+      :hover {
+        background: none;
+        color: rgb(160, 191, 48);
+      }
     }
 `;
 

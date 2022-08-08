@@ -46,6 +46,10 @@ const Wrapper = styled.div`
             color: rgb(242, 242,242);
             font-size: 1.2rem;
             letter-spacing: 0.1rem;
+            transition: 0.1s linear;
+            :hover {
+                transform: scale(1.1);
+            }
         }
     }
 `;

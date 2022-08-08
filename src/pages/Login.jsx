@@ -87,6 +87,12 @@ const FormStyle = styled.form`
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
+        transition: 0.4s linear;
+        border: 1px solid rgb(160, 191, 48);
+        :hover {
+        background: none;
+        color: rgb(160, 191, 48);
+      }
     }   
 `;
 

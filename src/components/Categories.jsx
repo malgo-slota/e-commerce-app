@@ -83,6 +83,10 @@ const Category = styled.div`
         font-size: 1.3rem;
         background: rgb(160, 191, 48);
         color: rgb(242, 242, 242);
+        transition: .1s linear;
+        :hover {
+            transform: scale(1.1);
+        }
     }
 `;
 

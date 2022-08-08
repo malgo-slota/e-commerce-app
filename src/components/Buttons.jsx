@@ -39,11 +39,13 @@ const ButtonsWrapper = styled.div`
         border: none;
         height: 3.5rem;
         width: 3.5rem;
+        transition: .1s linear;
         svg {
             font-size: 1.6rem;
         }  
         :hover{
             opacity: 1;
+            transform: scale(1.1);
         }
     }
 `;

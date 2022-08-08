@@ -31,10 +31,15 @@ const Wrapper = styled.div`
     button {
         margin: 1.2rem 1rem 0rem 1rem;
         padding: 1rem;
-        border: none;
+        border: 0.1rem solid rgb(160, 191, 48);
         font-size: 1.3rem;
         background: rgb(160, 191, 48);
         color: rgb(242, 242, 242);
+        transition: .3s linear;
+        :hover {
+            background: none;
+            color: rgb(160, 191, 48);
+        }
     }
 `;
 

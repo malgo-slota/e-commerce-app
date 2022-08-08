@@ -60,6 +60,9 @@ const NavLinks = styled.div`
   svg {
       font-size: 1.4rem;
       margin: 0.4rem ;
+      :hover {
+        transform: scale(1.2);
+      }
   }
 `;
 

@@ -50,6 +50,12 @@ const Wrapper = styled.div`
         font-size: 1.3rem;
         background: rgb(160, 191, 48);
         color: rgb(242, 242, 242);
+        transition: 0.4s linear;
+        border: 1px solid rgb(160, 191, 48);
+        :hover {
+            background: none;
+            color: rgb(160, 191, 48);
+        }
     }
     p {
         font-size: 2rem;
