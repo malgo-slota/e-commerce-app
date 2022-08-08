@@ -1,31 +1,35 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import styled from 'styled-components';
 import { BsPerson, BsCart } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrClose } from 'react-icons/gr';
 import { NavLink } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import CartContext from '../CartContext.js';
+import BurgerMenu from "./BurgerMenu.jsx";
 
 function Header () {
     const { cartItems } = useContext(CartContext);
-   
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <Nav>
-            <Logo to="/">
+            <Logo to="/" onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                 Store
             </Logo>   
             <NavLinks>
-                <button>
-                    <GiHamburgerMenu />
+                <button onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
+                    {isMenuOpen ? <GrClose /> : <GiHamburgerMenu />}
                 </button>
-                <NavLink to={"/search"}>
+                <BurgerMenu isMenuOpen={isMenuOpen}/>
+                <NavLink to={"/search"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsSearch />
                 </NavLink>
-                <ShoppingCart to={"/cart"}>
+                <ShoppingCart to={"/cart"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsCart />
                     <div>{cartItems.length}</div>
                 </ShoppingCart>
-                <NavLink to={"/login"}>
+                <NavLink to={"/login"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsPerson />
                 </NavLink>
             </NavLinks> 
@@ -50,6 +54,8 @@ const Logo = styled(NavLink)`
 
 const NavLinks = styled.div`
   display: flex;
+  justify-content: space-around;
+  width: 55%;
   button {
       border: none;
       background: none;      
