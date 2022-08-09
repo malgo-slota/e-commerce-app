@@ -17,10 +17,8 @@ Continued development
 
 - for mobile
 
-    - hover states for all interactive elements
     - basic animations
     - loading screen
-    - hamburger menu for displaying categories
     - remove from cart option
     - increasing or decreasing quantity for items in cart
     - concat products with the same id in cart
