@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from 'react-router-dom';
 import CartContext from '../CartContext';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -8,7 +9,8 @@ function Cart () {
     const { cartItems } = useContext(CartContext);
 
     return (
-            <Table>
+        <Wrapper>
+            <table>
                 <TableBody>
                     {cartItems.map((item)=> {
                     return (
@@ -42,11 +44,33 @@ function Cart () {
                         <td>$</td>
                     </tr>           
                 </TableFooter>
-            </Table>
+            </table>
+            <Proceed to={"/shipping"}>Proceed to checkout</Proceed>
+        </Wrapper>
     );  
 }
-const Table = styled.table`
+const Wrapper = styled.div`
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+`;
+
+const Proceed = styled(NavLink)`
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 1rem;
+        text-align: center;
+        padding: 1rem;
+        background: rgb(160, 191, 48);
+        color: rgb(242, 242,242);
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+        transition: 0.4s linear;
+        border: 1px solid rgb(160, 191, 48);
+        :hover {
+        background: none;
+        color: rgb(160, 191, 48);
+      }
 `;
 
 const TableBody = styled.tbody`

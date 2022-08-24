@@ -11,6 +11,9 @@ import CategoryShopSection from "./CategoryShopSection";
 import NotFound from "../components/NotFound.jsx";
 import SearchResults from "./SearchResults.jsx";
 import Cart from "./Cart";
+import Shipping from "./Shipping.jsx";
+import Details from "./Details.jsx";
+import Summary from "./Summary.jsx";
 
 function Pages() {
   const location = useLocation();
@@ -25,6 +28,9 @@ function Pages() {
           <Route path="/products/category/:category" element={<CategoryShopSection/>}/>
           <Route path="/search" element={<SearchResults />}/>
           <Route path="/cart" element={<Cart />}/>
+          <Route path="/shipping" element={<Shipping />}/>
+          <Route path="/details" element={<Details />}/>
+          <Route path="/summary" element={<Summary />} />
           <Route path="*" element={<NotFound/>}/>
       </Routes>      
   );
