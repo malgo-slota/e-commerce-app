@@ -27,19 +27,20 @@ function BurgerMenu ( { isMenuOpen }) {
 }
 
 const Menu = styled.div`
-  position: absolute;   
-  z-index: 1;
-  height: 100vh;
-  width: 100%;
-  top: 3rem;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: space-evenly;
-  background: rgb(242,242,242);
-    transform: ${({ isMenuOpen }) => isMenuOpen ? 'translateX(0%)' : 'translateX(100%)'};
-  transition: transform 0.3s ease-in-out;
+    position: absolute;
+    z-index: 1;
+    top: 3rem;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    min-width: 100vw;
+    background-color: rgb(242,242,242);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    transition: transform 300ms;
+    transform: ${({ isMenuOpen }) => (isMenuOpen ? 'translateX(0%)' : 'translateX(-100%)')};
   a {
       position: relative;
       text-decoration: none;
@@ -73,5 +74,6 @@ const Menu = styled.div`
             }
         }
     }
+
 `;
 export default BurgerMenu;
