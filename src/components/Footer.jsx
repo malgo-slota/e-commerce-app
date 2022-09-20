@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {GrFacebook, GrInstagram} from 'react-icons/gr';
+import { NativeSelect } from "@mui/material";
 
 function Footer () {
     return (
@@ -9,13 +10,13 @@ function Footer () {
                 Store
             </Logo>
             <nav>
-                <ul>
+                <FooterLinks>
                     <li><a href="/">About us</a></li>
                     <li><a href='/'>Terms & Conditions</a></li>
                     <li><a href='/'>PrivacyPolicy</a></li>
                     <li><a href='/'>Contact Us</a></li>
                     <li><a href='/'>FAQ</a></li>
-                </ul> 
+                </FooterLinks> 
             </nav>
             <SocialMedia>
                 <GrFacebook />
@@ -46,12 +47,24 @@ const Wrapper = styled.footer`
     }
 `;
 
+const FooterLinks = styled.ul`
+    @media (min-width: 768px){
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: center;
+    }
+`;
+
 const Logo = styled.div`
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
     color: rgb(160, 191, 48);
     letter-spacing: 0.1rem;
     margin-bottom: 2rem;
+     @media (min-width: 600px){
+        text-align: center;
+    }
 `;
 
 const SocialMedia = styled.div`

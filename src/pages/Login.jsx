@@ -33,6 +33,9 @@ const Wrapper = styled.div`
     margin: 6rem 2rem;
     padding:  3rem 2rem;
     box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
+    @media (min-width: 768px){
+        margin: 6rem 22rem;
+    }
     h1 {
         font-family: 'Abril Fatface', cursive;
         color: rgba(20,22,38, 0.6);

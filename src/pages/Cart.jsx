@@ -15,25 +15,17 @@ function Cart () {
                     {cartItems.map((item)=> {
                     return (
                         <Item key={item.id}>
-                            <td>
-                                <img src={item.image} alt={item.title} />
-                            </td>
-                            <Row>
-                                <div>
-                                    <p>{item.title}</p>
-                                    <QuantityBtns>
-                                        <button>-</button>
-                                        <span>1</span>
-                                        <button>+</button>
-                                    </QuantityBtns>
-                                </div>
-                                <div>
-                                    <button>
-                                        <AiOutlineClose/>
-                                    </button>
-                                    <Price>{item.price}$</Price>
-                                </div>
-                            </Row>
+                            <img src={item.image} alt={item.title} />  
+                            <p>{item.title}</p>
+                            <button>
+                                <AiOutlineClose/>
+                            </button>
+                            <QuantityBtns>
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </QuantityBtns>
+                            <Price>{item.price}$</Price>
                         </Item>    
                     ); 
                     })}
@@ -53,42 +45,32 @@ const Wrapper = styled.div`
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
-`;
-
-const Proceed = styled(NavLink)`
-        text-decoration: none;
-        text-transform: uppercase;
-        margin: 1rem;
-        text-align: center;
-        padding: 1rem;
-        background: rgb(160, 191, 48);
-        color: rgb(242, 242,242);
-        font-size: 1.2rem;
-        letter-spacing: 0.1rem;
-        transition: 0.4s linear;
-        border: 1px solid rgb(160, 191, 48);
-        :hover {
-        background: none;
-        color: rgb(160, 191, 48);
-      }
+    @media (min-width: 768px) {
+        margin: 3rem 6rem;
+    }
 `;
 
 const TableBody = styled.tbody`
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    img {
-      width: 100%;
-    } 
 `;
 
 const Item = styled.tr`
     padding-bottom: 2rem;
     border-bottom: 1px solid rgb(193,192,192);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
+    align-items: center;
     margin: 1rem;
-    display: flex;
-    gap: 1rem;
     min-height: 12rem;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+    }
+    img {
+      width: 100%;
+    } 
     button {
         background: none;
         border: none;
@@ -98,31 +80,28 @@ const Item = styled.tr`
     }
 `;
 
-const Row = styled.td`
-    display: flex;
-    gap: 1rem;
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        div {
-            flex-direction: row;
-        }
-    }
-`;
-
 const Price = styled.p`
   font-size: 1.2rem;
   line-height: 1.2rem;
   padding: 0.6rem 0; 
+  justify-self: center;
+    @media (min-width: 768px) {
+        grid-row-start: 1;
+        grid-column-start: 4;
+    }
 `;
 
 const QuantityBtns = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     width: 7.4rem;
+    grid-column-start: 2;
+     @media (min-width: 768px) {
+        grid-row-start: 1;
+        grid-column-start: 3;
+        justify-self: center;
+    }
     button {
         border: 1px solid rgb(193,192,192);
         color: rgb(193,192,192);
@@ -147,6 +126,24 @@ const TableFooter = styled.tfoot`
         padding: 3rem 2rem;
         box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
     }
+`;
+
+const Proceed = styled(NavLink)`
+        text-decoration: none;
+        text-transform: uppercase;
+        margin: 1rem;
+        text-align: center;
+        padding: 1rem;
+        background: rgb(160, 191, 48);
+        color: rgb(242, 242,242);
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+        transition: 0.4s linear;
+        border: 1px solid rgb(160, 191, 48);
+        :hover {
+        background: none;
+        color: rgb(160, 191, 48);
+      }
 `;
 
 export default Cart;

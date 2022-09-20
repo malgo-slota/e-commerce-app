@@ -29,6 +29,9 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     margin-top: 6rem;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 
     div {
         display: flex;
@@ -40,6 +43,10 @@ const Grid = styled.div`
         svg {
             font-size: 3rem;
             margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            margin: 1rem;
         }
     }
 `;

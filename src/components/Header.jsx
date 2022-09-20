@@ -55,10 +55,14 @@ const Logo = styled(NavLink)`
 const NavLinks = styled.div`
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 55%;
   button {
       border: none;
-      background: none;      
+      background: none; 
+       @media (min-width: 768px){
+         display: none;
+       }    
   }
   a {
       color: rgb(38, 38, 38);
@@ -70,6 +74,11 @@ const NavLinks = styled.div`
         transform: scale(1.2);
       }
   }
+   @media (min-width: 768px){
+    justify-content: flex-end;
+    width: 100%;
+    gap: 2rem;
+   }
 `;
 
 const ShoppingCart = styled(NavLink)`

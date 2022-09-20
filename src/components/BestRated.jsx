@@ -27,10 +27,15 @@ function BestRated () {
                 type: 'loop',
                 gap: '0.5rem',
                 padding: '5rem',
-                perPage: '1',
+                perPage: '3',
                 drag: true,
                 arrows: true,
                 pagination: false,
+                breakpoints: {
+		            768: {
+			            perPage: 1,
+		            },
+                }
             }}> 
                 {bestRated.filter(product => product.rating.rate >= 4).map(item => {
                     return (

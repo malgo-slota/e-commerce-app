@@ -51,6 +51,10 @@ const Wrapper = styled.div`
                 transform: scale(1.1);
             }
         }
+        @media (min-width: 768px) {
+            width: 60%;
+            margin: 0 auto;
+        }
     }
 `;
 

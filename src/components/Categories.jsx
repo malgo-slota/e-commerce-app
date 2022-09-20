@@ -27,13 +27,13 @@ function Categories () {
                 <Category>
                     <img src="images/pexels-andrea-piacquadio-774909.jpg" alt="pexels-andrea-piacquadio-774909"/>
                     <Link to="/products/category/women's%20clothing">
-                        <button>Women's clothing</button>
+                        <button>Women's</button>
                     </Link>   
                 </Category>
                 <Category>
                     <img src="images/pexels-jackson-david-3147528.jpg" alt="pexels-jackson-david-3147528"/>
                     <Link to="/products/category/men's%20clothing">
-                        <button>Men's clothing</button>
+                        <button>Men's</button>
                     </Link>
                 </Category>
                 <Category>
@@ -65,6 +65,10 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 0 1rem;
+    }
 `;
 
 const Category = styled.div` 
@@ -86,6 +90,9 @@ const Category = styled.div`
         transition: .1s linear;
         :hover {
             transform: scale(1.1);
+        }
+        @media (min-width: 768px) {
+            right: 0;
         }
     }
 `;

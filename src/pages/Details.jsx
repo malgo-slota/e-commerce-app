@@ -56,6 +56,9 @@ const Wrapper = styled.form`
   flex-direction: column;
   padding: 1rem;
   gap: 2rem;
+   @media (min-width: 768px) {
+        margin: 3rem 22rem;
+    }
   img {
     width: 70px;
   }

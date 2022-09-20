@@ -41,8 +41,16 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+    @media (min-width: 768px){
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin: 5rem 8rem 0rem 8rem;
+    }
     img{
         width: 100%;
+        @media (min-width: 768px){
+            grid-row: 1 / span 4;
+        }
     }
     button {
         padding: 1rem;

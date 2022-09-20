@@ -56,6 +56,10 @@ function SearchResults () {
 
 const Wrapper = styled.div`
   margin: 0rem 1rem; 
+  @media (min-width: 768px) {
+        width: 30%;
+        margin: 3rem auto;
+    }
 `;
 
 const ItemWrapper = styled.div`

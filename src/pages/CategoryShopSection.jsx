@@ -51,6 +51,10 @@ const Grid = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin: 0 1rem;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 4rem 6rem;
+    }
 `;
 
 const ItemWrapper = styled.div`

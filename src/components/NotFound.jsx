@@ -17,6 +17,10 @@ function NotFound () {
 const Wrapper = styled.div`
     margin: 4rem 0;
     position: relative;
+     @media (min-width: 768px) {
+        width: 30%;
+        margin: 4rem auto;
+    }
     h1 {
         font-size: 2.4rem;
         text-align: center;

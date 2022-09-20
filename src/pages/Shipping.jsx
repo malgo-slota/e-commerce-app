@@ -39,6 +39,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+     @media (min-width: 768px) {
+        margin: 3rem 22rem;
+    }
     input {
        border: 1px solid rgb(193,192,192);;
         padding: 0.2rem 1rem;

@@ -8,13 +8,13 @@ function BurgerMenu ( { isMenuOpen }) {
     return (
        <Menu isMenuOpen={isMenuOpen}>
            <a href="/products">
-               All products
+               All
            </a>
             <a href="/products/category/women's%20clothing">
-                Women's clothing
+                Women's
             </a>
             <a href="/products/category/men's%20clothing">
-                Men's clothing
+                Men's 
             </a>
             <a href="/products/category/jewelery">
                 Jewelery
@@ -41,11 +41,14 @@ const Menu = styled.div`
     justify-content: space-evenly;
     transition: transform 300ms;
     transform: ${({ isMenuOpen }) => (isMenuOpen ? 'translateX(0%)' : 'translateX(-100%)')};
-  a {
+    a {
       position: relative;
       text-decoration: none;
       font-size: 1.4rem; 
       line-height: 3rem;
+       @media (min-width: 768px) {
+                padding: 0 0.5rem;
+        }
         ::before {
             content: "";
             position: absolute;
@@ -53,6 +56,9 @@ const Menu = styled.div`
             height: 0%;
             border-right: 5px solid rgb(160, 191, 48);
             transition: 0.2s linear;
+            @media (min-width: 768px) {
+                border-right: 2px solid rgb(160, 191, 48);
+            }
         }
         ::after {
             content: "";
@@ -61,19 +67,45 @@ const Menu = styled.div`
             height: 0%;
             border-left: 5px solid rgb(160, 191, 48);
             transition: 0.2s linear;
+             @media (min-width: 768px) {
+                border-left: 2px solid rgb(160, 191, 48);
+            }
         }
         :hover {
         font-size: 1.6rem;
             ::before {
                 right: 2rem;
                 height: 100%;
+                @media (min-width: 768px) {
+                    left: 2rem;
+                    right: 0; 
+                }
             }
             ::after {
                 left: 2rem;
                 height: 100%;
+                @media (min-width: 768px) {
+                    left: 0;
+                    right: 2rem;
+                }
             }
         }
     }
-
+    @media (min-width: 768px){
+        position: static;
+        height: 100%;
+        min-width: 0vw;
+        top: 0;
+        background: none;
+        flex-direction: row;
+        gap: 1rem;
+        transform: translateX(0%);
+        a {
+            font-size: 1rem;
+            :hover {
+                font-size: 1rem;
+            }
+        }
+    }
 `;
 export default BurgerMenu;

@@ -41,6 +41,13 @@ const Wrapper = styled.div`
             color: rgb(160, 191, 48);
         }
     }
+     @media (min-width: 768px){
+        margin: 3rem auto;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export default ShowAll;
