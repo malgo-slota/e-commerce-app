@@ -6,32 +6,30 @@
 
 For now, users are be able to:
 
-- view the optimal mobile layout
+- view the optimal mobile and desktop layout
 - view login and register page
+- view 404 page
 - add items to cart
 - display cart page
 - display single product page with details
 - display all products, search products by category or by search results
+- proceed to checkout/shipping pages
 
 Continued development 
 
-- for mobile
-
-    - basic animations
-    - loading screen
-    - remove from cart option
-    - increasing or decreasing quantity for items in cart
-    - concat products with the same id in cart
-    - user authentication and authorization
-    - email invoking
-    - proceed to checkout, checkout/shipping/payments page
-    - profile page with history of orders
-    - accessibility improvements
-    - refactor styling
+- basic animations
+- loading screen
+- remove from cart option
+- increasing or decreasing quantity for items in cart
+- concat products with the same id in cart
+- user authentication and authorization
+- email invoking
+- checkout/shipping form validations
+- summary page
+- profile page with history of orders
+- accessibility improvements
+- refactor styling
    
-- desktop version of the app
-
-
 ## Build with
 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
