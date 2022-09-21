@@ -8,6 +8,8 @@ function Cart () {
 
     const { cartItems, removeFromCart } = useContext(CartContext);
     
+    const cartTotal = cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+
     return (
         <Wrapper>
             <table>
@@ -33,7 +35,7 @@ function Cart () {
                 <TableFooter>
                     <tr>
                         <th>Total</th>
-                        <td>$</td>
+                        <td>{cartTotal}$</td>
                     </tr>           
                 </TableFooter>
             </table>
