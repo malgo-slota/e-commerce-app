@@ -29,11 +29,22 @@ export function CartProvider({ children }) {
     }
 
     const addToCart = (id, image, title, price) => {
-        setCartItems((prevState) => [...prevState, {id, image, title, price}]);
+        const existingItems = cartItems.find((item) => item.id === id);
+        if (existingItems) {
+            setCartItems((prevState) => [...prevState]);
+            console.log('this product already exist')
+        } else {
+            setCartItems((prevState) => [...prevState, {id, image, title, price}]);
+            console.log('added new product to cart');
+        }
     };
 
+    const removeFromCart = (item_id) => {
+        setCartItems(cartItems.filter((item) => item.id !== item_id));
+    }
+
 	return (
-		<CartContext.Provider value={{ cartItems, addToCart }}>
+		<CartContext.Provider value={{ cartItems, addToCart, removeFromCart}}>
 			{children}
 		</CartContext.Provider>
 	);

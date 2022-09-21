@@ -6,8 +6,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 function Cart () {
 
-    const { cartItems } = useContext(CartContext);
-
+    const { cartItems, removeFromCart } = useContext(CartContext);
+    
     return (
         <Wrapper>
             <table>
@@ -17,7 +17,7 @@ function Cart () {
                         <Item key={item.id}>
                             <img src={item.image} alt={item.title} />  
                             <p>{item.title}</p>
-                            <button>
+                            <button onClick={() => removeFromCart(item.id)}>
                                 <AiOutlineClose/>
                             </button>
                             <QuantityBtns>
