@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import CartContext from '../CartContext';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import QuantityBtns from "../components/QuantityBtns";
 
 function Cart () {
 
@@ -12,34 +13,26 @@ function Cart () {
 
     return (
         <Wrapper>
-            <table>
-                <TableBody>
+                <ItemsContainer>
                     {cartItems.map((item)=> {
                     return (
                         <Item key={item.id}>
-                            <img src={item.image} alt={item.title} />  
+                            <img src={item.image} alt={item.title} /> 
                             <p>{item.title}</p>
                             <button onClick={() => removeFromCart(item.id)}>
                                 <AiOutlineClose/>
                             </button>
-                            <QuantityBtns>
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                            </QuantityBtns>
+                            <QuantityBtns />
                             <Price>{item.price}$</Price>
                         </Item>    
                     ); 
                     })}
-                </TableBody>
-                <TableFooter>
-                    <tr>
-                        <th>Total</th>
-                        <td>{cartTotal}$</td>
-                    </tr>           
-                </TableFooter>
-            </table>
-            <Proceed to={"/shipping"}>Proceed to checkout</Proceed>
+                </ItemsContainer>
+                <CartTotal>
+                        <p>Total</p>
+                        <p>{cartTotal}$</p> 
+                </CartTotal>
+                <Proceed to={"/shipping"}>Proceed to checkout</Proceed>
         </Wrapper>
     );  
 }
@@ -52,13 +45,13 @@ const Wrapper = styled.div`
     }
 `;
 
-const TableBody = styled.tbody`
+const ItemsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2rem;
 `;
 
-const Item = styled.tr`
+const Item = styled.div`
     padding-bottom: 2rem;
     border-bottom: 1px solid rgb(193,192,192);
     display: grid;
@@ -93,41 +86,12 @@ const Price = styled.p`
     }
 `;
 
-const QuantityBtns = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 7.4rem;
-    grid-column-start: 2;
-     @media (min-width: 768px) {
-        grid-row-start: 1;
-        grid-column-start: 3;
-        justify-self: center;
-    }
-    button {
-        border: 1px solid rgb(193,192,192);
-        color: rgb(193,192,192);
-        font-size: 1.4rem;
-        width: 2.2rem;
-        height: 2.2rem;
-    }
-    span {
-        border: 1px solid rgb(193,192,192);
-        width: 2.2rem;
-        height: 2.2rem;
-        font-size: 1.3rem;
-        text-align: center;
-    }
-`;
-
-const TableFooter = styled.tfoot`
-    tr {
+const CartTotal = styled.div`
         display: flex;
         justify-content: space-between;
         margin: 0 1rem;
         padding: 3rem 2rem;
         box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
-    }
 `;
 
 const Proceed = styled(NavLink)`
