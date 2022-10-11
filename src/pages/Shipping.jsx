@@ -1,71 +1,104 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import FormInput from "../components/FormInput";
+
 
 export default function Shipping () {
+    const navigate = useNavigate();
+
+
+   const handleSubmit= (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        console.log(Object.fromEntries(data.entries()));
+
+        navigate('/details');
+
+   };
+
     return (
         <Wrapper>
-            <Container>
-                <h1>Customer information</h1>
+            <form onSubmit={handleSubmit}>
+                <h2>Customer information</h2>
                 <p>Already have an account? 
                     <NavLink to={"/login"}>Log in</NavLink>
                 </p>
-                <input type="email" placeholder="Email" />
-            </Container>
-            <h1>Shipping address</h1>
-            <Container>
-                <input type="text" placeholder="First Name" />
-                <input type="text" placeholder="Last Name" />
+                <FormInput name="email" 
+                            type="email" 
+                            label="Email*" 
+                            errorMessage="Invalid email"
+                            />
+                
+                <h2>Shipping address</h2>
+                <FormInput name="firstname" 
+                            type="text" 
+                            label="First Name*" 
+                            errorMessage="This field is required"
+                            />
+                <FormInput name="lastname" 
+                            type="text" 
+                            label="Last Name*" 
+                            errorMessage="This field is required"
+                            />
+                <FormInput name="street" 
+                            type="text" 
+                            label="Adress*" 
+                            errorMessage="This field is required"
+                            />
                 <Row>
-                    <input type="text" placeholder="Adress" />
-                    <input type="text" placeholder="Apt,suite,etc." />
+                    <FormInput name="city" 
+                                type="text" 
+                                label="City*" 
+                                errorMessage="This field is required"
+                                />
+                    <FormInput name="zip" 
+                                type="text"
+                                inputmode="numeric" 
+                                label="Zip/Postal Code*" 
+                                pattern="[0-9]{2}\-[0-9]{3}"
+                                errorMessage="This filed is required, and should contain olny numbers"
+                                />
                 </Row>
-                <Row>
-                    <input type="text" placeholder="City" />
-                    <input type="text" placeholder="00-00" />
-                </Row>
-                <input type="text" placeholder="Country" />
-                <input type="text" placeholder="Phone" />
+                <FormInput name="country" 
+                            type="text" 
+                            label="Country*"
+                            pattern="[A-Za-z ]{1,32}"
+                            errorMessage="This field is required"
+                            />
+                <FormInput name="phone" 
+                            type="tel" 
+                            label="Phone*"
+                            pattern="/(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/"
+                            errorMessage="Invalid phone number"
+                            />
                 <NavLink to={"/cart"}>Return to cart</NavLink> 
-                <Proceed to={"/details"}>Continue</Proceed>
-            </Container>
+                <SubmitBtn>Submit</SubmitBtn>
+            </form> 
         </Wrapper>
     );
 }
 
 const Wrapper = styled.div`
     padding: 0 1rem;
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    margin-top: 4rem;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
      @media (min-width: 768px) {
         margin: 3rem 22rem;
     }
-    input {
-       border: 1px solid rgb(193,192,192);;
-        padding: 0.2rem 1rem;
-        font-size: 1.4rem;
-        width: 100%;
-        outline: none;
-        line-height: 3rem;
-        font-size: 1.2rem;
-    }
-`;
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 `;
 
 const Row = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 7fr 4fr;
   gap: 0.4rem;
 `;
 
-const Proceed = styled(NavLink)`
+const SubmitBtn = styled.button`
         text-decoration: none;
         text-transform: uppercase;
         margin-top: 1rem;
