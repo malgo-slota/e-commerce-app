@@ -1,40 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsPerson, BsLock } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
+import FormInput from '../components/FormInput';
 import styled from "styled-components";
 
 function SignUp () {
+    const [password, setPassword] = useState("");
+
+    const handleChange = (e) => {
+        setPassword(e.target.value);
+    }
+
     return (
-       <Wrapper>
+       <Content>
            <h1>Create user account</h1>
             <FormStyle>
-                <div>
+                <Container>
                     <BsPerson />
-                    <input type="text" placeholder="FIRST NAME" />
-                </div>   
-                <div>
+                    <FormInput type="text" 
+                                placeholder="FIRST NAME" 
+                                errorMessage="This field is required"
+                                />
+                </Container>   
+                <Container>
                     <BsPerson />
-                    <input type="text" placeholder="LAST NAME" />
-                </div>    
-                <div>
+                    <FormInput type="text"
+                                placeholder="LAST NAME" 
+                                errorMessage="This field is required"
+                                />
+                </Container>    
+                <Container>
                     <AiOutlineMail />
-                    <input type="email" placeholder="EMAIL" />
-                </div>   
-                <div>
+                    <FormInput type="email" 
+                                placeholder="EMAIL" 
+                                errorMessage="Invalid email adress"
+                                />
+                </Container>   
+                <Container>
                     <BsLock />
-                    <input type="password" placeholder="PASSWORD" />
-                </div>
-                <div>
+                    <FormInput type="password" 
+                                placeholder="PASSWORD" 
+                                pattern="(?=^.{8,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                                errorMessage="Password should be 8-20 characters and include at least 1 uppercase, 1 number"
+                                onChange={handleChange}
+                                value={password}
+                                />
+                </Container>
+                <Container>
                     <BsLock />
-                    <input type="password" placeholder="REPEAT PASSWORD" />
-                </div>        
+                    <FormInput type="password" 
+                                placeholder="REPEAT PASSWORD" 
+                                errorMessage="Passwords don't match!"
+                                pattern={password}
+                                />
+                </Container>        
                 <input type="submit" value="Sign up"/>
             </FormStyle>
-        </Wrapper>
+        </Content>
     );
 }
 
-const Wrapper = styled.div`
+const Content = styled.div`
     margin: 6rem 2rem;
     padding:  3rem 2rem;
     box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
@@ -53,30 +79,6 @@ const FormStyle = styled.form`
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-        div {
-            display: flex;
-            flex-direction: row;
-            border: 1.5px solid rgba(20,22,38, 0.12);
-            position: relative;
-            input {
-                border: none;
-                height: 4rem;
-                padding: 0 3rem;
-                width:100%;
-                font-size: 1.4rem;
-                outline: none;
-                ::placeholder {
-                    font-size: 1rem;
-                }
-            }
-            svg {
-                opacity: 0.5;
-                position: absolute;
-                top: 50%;
-                left: 0%;
-                transform: translate(100%, -50%);
-            }
-        }
     input[type="submit"] {
         text-transform: uppercase;
         margin-top: 1rem;
@@ -90,9 +92,26 @@ const FormStyle = styled.form`
         border: 1px solid rgb(73, 84, 33);
         :hover {
         background: none;
-        color: rrgb(73, 84, 33);
+        color:rgb(73, 84, 33);
       }
     }   
+`;
+
+const Container = styled.div`
+    position: relative;
+    height: 6rem;
+    input {
+        border: 1.5px solid rgba(20,22,38, 0.12);
+        height: 4rem;
+        padding: 0 3rem;
+    }
+    svg {
+        opacity: 0.5;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(100%, -100%);
+    }
 `;
 
 export default SignUp;

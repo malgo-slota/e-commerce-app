@@ -25,7 +25,6 @@ function Login () {
                                 name="password"
                                 placeholder="PASSWORD" 
                                 errorMessage="Invalid password"
-                                aria-required="true"
                                 required
                             />
                 </Container>

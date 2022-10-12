@@ -20,6 +20,8 @@ function FormInput (props) {
                     inputMode={props.inputMode}
                     onBlur={handleFocus}
                     focused={focused.toString()}
+                    onChange={props.onChange}
+                    value={props.value}
                     aria-required="true"
                     required
                     />
