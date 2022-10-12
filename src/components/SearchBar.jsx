@@ -15,27 +15,34 @@ function SearchBar ( { input, setInput }) {
       <Wrapper onSubmit={submitHandler}>
             <SearchInput type="text" 
                         onChange={(e) => setInput(e.target.value)}
-                        value={input} />
-            <IoIosArrowForward/>
+                        value={input} 
+                        aria-label="insert your search"/>
+            <button aria-label="search">
+                <IoIosArrowForward/>
+            </button>
       </Wrapper>
     );
 }
 
 const Wrapper = styled.form`
     margin: 2rem auto;
-    border: 1px solid rgb(160, 191, 48);
+    border: 1px solid rgb(73, 84, 33);
     width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+    button {
+      display: flex;
+      border: none;
+    }
     svg {
       font-size: 2.1rem;
       color: white;
-      background: rgb(160, 191, 48);
+      background: rgb(73, 84, 33);
       transition: 0.4s linear;
       :hover {
         background: none;
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
       }
     }
 `;

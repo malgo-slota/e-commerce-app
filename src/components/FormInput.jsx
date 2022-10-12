@@ -11,13 +11,15 @@ function FormInput (props) {
 
     return (
         <Wrapper>
-            <label>{props.label}</label>
-            <input type={props.type} 
+            <label htmlFor={props.name}>{props.label}</label>
+            <input type={props.type}    
                     name={props.name}
+                    id={props.name}
                     pattern={props.pattern}
                     inputmode={props.inputmode}
                     onBlur={handleFocus}
                     focused={focused.toString()}
+                    aria-required="true"
                     required
                     />
             <span>

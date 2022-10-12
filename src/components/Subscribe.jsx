@@ -9,9 +9,9 @@ function Subscribe () {
                 <h2>and get 5% off your first order</h2>
             </Text>
             <form>
-                <input type="email" placeholder='Enter your email address'></input>
+                <input aria-label="join our newsletter" type="email" placeholder='Enter your email address'></input>
                 <input type="submit" value="Submit"></input>
-            </form>
+        </form>
         </Wrapper>
     );
 }
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
             font-size: 1rem;
             padding: 1rem;
             border: none;
-            background: rgb(160, 191, 48);
+            background: rgb(73, 84, 33);
             color: rgb(242, 242,242);
             font-size: 1.2rem;
             letter-spacing: 0.1rem;

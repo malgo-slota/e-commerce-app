@@ -7,19 +7,19 @@ function BurgerMenu ( { isMenuOpen }) {
 
     return (
        <Menu isMenuOpen={isMenuOpen}>
-           <a href="/products">
+           <a aria-label="all products" href="/products">
                All
            </a>
-            <a href="/products/category/women's%20clothing">
+            <a aria-label="women's category" href="/products/category/women's%20clothing">
                 Women's
             </a>
-            <a href="/products/category/men's%20clothing">
+            <a aria-label="men's category" href="/products/category/men's%20clothing">
                 Men's 
             </a>
-            <a href="/products/category/jewelery">
+            <a aria-label="jewelery category" href="/products/category/jewelery">
                 Jewelery
             </a>
-            <a href="/products/category/electronics">
+            <a aria-label="electronics category" href="/products/category/electronics">
                 Electronics
             </a>
         </Menu>
@@ -54,10 +54,10 @@ const Menu = styled.div`
             position: absolute;
             right: 0rem;
             height: 0%;
-            border-right: 5px solid rgb(160, 191, 48);
+            border-right: 5px solid rgb(73, 84, 33);
             transition: 0.2s linear;
             @media (min-width: 768px) {
-                border-right: 2px solid rgb(160, 191, 48);
+                border-right: 2px solid rgb(73, 84, 33);
             }
         }
         ::after {
@@ -65,10 +65,10 @@ const Menu = styled.div`
             position: absolute;
             left: 0rem;
             height: 0%;
-            border-left: 5px solid rgb(160, 191, 48);
+            border-left: 5px solid rgb(73, 84, 33);
             transition: 0.2s linear;
              @media (min-width: 768px) {
-                border-left: 2px solid rgb(160, 191, 48);
+                border-left: 2px solid rgb(73, 84, 33);
             }
         }
         :hover {

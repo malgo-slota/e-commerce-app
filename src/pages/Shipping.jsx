@@ -26,54 +26,54 @@ export default function Shipping () {
                 </p>
                 <FormInput name="email" 
                             type="email" 
-                            label="Email*" 
+                            label="Email" 
                             errorMessage="Invalid email"
                             />
                 
                 <h2>Shipping address</h2>
                 <FormInput name="firstname" 
                             type="text" 
-                            label="First Name*" 
+                            label="First Name" 
                             errorMessage="This field is required"
                             />
                 <FormInput name="lastname" 
                             type="text" 
-                            label="Last Name*" 
+                            label="Last Name" 
                             errorMessage="This field is required"
                             />
                 <FormInput name="street" 
                             type="text" 
-                            label="Adress*" 
+                            label="Adress" 
                             errorMessage="This field is required"
                             />
                 <Row>
                     <FormInput name="city" 
                                 type="text" 
-                                label="City*" 
+                                label="City" 
                                 errorMessage="This field is required"
                                 />
                     <FormInput name="zip" 
                                 type="text"
                                 inputmode="numeric" 
-                                label="Zip/Postal Code*" 
+                                label="Zip/Postal Code" 
                                 pattern="[0-9]{2}\-[0-9]{3}"
                                 errorMessage="This filed is required, and should contain olny numbers"
                                 />
                 </Row>
                 <FormInput name="country" 
                             type="text" 
-                            label="Country*"
+                            label="Country"
                             pattern="[A-Za-z ]{1,32}"
                             errorMessage="This field is required"
                             />
                 <FormInput name="phone" 
                             type="tel" 
-                            label="Phone*"
+                            label="Phone"
                             pattern="/(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/"
                             errorMessage="Invalid phone number"
                             />
                 <NavLink to={"/cart"}>Return to cart</NavLink> 
-                <SubmitBtn>Submit</SubmitBtn>
+                <SubmitBtn aria-label="submit">Submit</SubmitBtn>
             </form> 
         </Wrapper>
     );
@@ -104,14 +104,14 @@ const SubmitBtn = styled.button`
         margin-top: 1rem;
         text-align: center;
         padding: 1rem;
-        background: rgb(160, 191, 48);
+        background: rgb(73, 84, 33);
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
         transition: 0.4s linear;
-        border: 1px solid rgb(160, 191, 48);
+        border: 1px solid rgb(73, 84, 33);
         :hover {
         background: none;
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
       }
 `;

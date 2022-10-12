@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {GrFacebook, GrInstagram} from 'react-icons/gr';
-import { NativeSelect } from "@mui/material";
+// import { NativeSelect } from "@mui/material";
 
 function Footer () {
     return (
@@ -42,7 +42,7 @@ const Wrapper = styled.footer`
         transition: 0.1s linear;
     }
     a:hover {
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
         transform: scale(1.1);
     }
 `;
@@ -59,7 +59,7 @@ const FooterLinks = styled.ul`
 const Logo = styled.div`
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
-    color: rgb(160, 191, 48);
+    color: rgb(73, 84, 33);
     letter-spacing: 0.1rem;
     margin-bottom: 2rem;
      @media (min-width: 600px){
@@ -77,7 +77,7 @@ const SocialMedia = styled.div`
         font-size: 1.2rem;
     }
     svg:hover{
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
         transform: scale(1.4);
     }
 `;

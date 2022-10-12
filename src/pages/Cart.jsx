@@ -19,7 +19,7 @@ function Cart () {
                         <Item key={item.id}>
                             <img src={item.image} alt={item.title} /> 
                             <p>{item.title}</p>
-                            <button onClick={() => removeFromCart(item.id)}>
+                            <button aria-label="remove from cart" onClick={() => removeFromCart(item.id)}>
                                 <AiOutlineClose/>
                             </button>
                             <QuantityBtns />
@@ -100,15 +100,15 @@ const Proceed = styled(NavLink)`
         margin: 1rem;
         text-align: center;
         padding: 1rem;
-        background: rgb(160, 191, 48);
+        background: rgb(73, 84, 33);
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
         transition: 0.4s linear;
-        border: 1px solid rgb(160, 191, 48);
+        border: 1px solid rgb(73, 84, 33);
         :hover {
         background: none;
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
       }
 `;
 

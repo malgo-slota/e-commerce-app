@@ -10,12 +10,10 @@ function Buttons ( { id, image, title, price }) {
 
     return (
         <ButtonsWrapper>
-            <Link to={`/product/${id}`}>
-                <button>
-                    <MdRemoveRedEye />
-                </button>
-            </Link>
-            <button onClick={() => addToCart(id,image,title,price)}>
+            <DetailsLink aria-label="product details" to={`/product/${id}`}>
+                <MdRemoveRedEye />
+            </DetailsLink>
+            <button aria-label="add to cart" onClick={() => addToCart(id,image,title,price)}>
                 <MdAddShoppingCart />
             </button>
         </ButtonsWrapper>
@@ -35,6 +33,7 @@ const ButtonsWrapper = styled.div`
             opacity: 1;
         }
     button {
+        background: rgb(242, 242, 242);
         border-radius: 50%;
         border: none;
         height: 3.5rem;
@@ -47,6 +46,26 @@ const ButtonsWrapper = styled.div`
             opacity: 1;
             transform: scale(1.1);
         }
+    }
+`;
+
+const DetailsLink = styled(Link)`
+    background: rgb(242, 242, 242);
+    border-radius: 50%;
+    border: none;
+    height: 3.5rem;
+    width: 3.5rem;
+    transition: .1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        font-size: 1.6rem;
+        color: rgb(0,0,0);
+    }  
+    :hover{
+        opacity: 1;
+        transform: scale(1.1);
     }
 `;
 

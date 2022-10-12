@@ -48,7 +48,7 @@ const Wrapper = styled.div`
         gap: 0.4rem;
         justify-content: center;
         a {
-            color: rgb(160, 191, 48);
+            color: rgb(73, 84, 33);
         }
     }
 `;
@@ -86,15 +86,15 @@ const FormStyle = styled.form`
         margin-top: 1rem;
         padding: 1rem;
         border: none;
-        background: rgb(160, 191, 48);
+        background: rgb(73, 84, 33);
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
         transition: 0.4s linear;
-        border: 1px solid rgb(160, 191, 48);
+        border: 1px solid rgb(73, 84, 33);
         :hover {
         background: none;
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
       }
     }   
 `;

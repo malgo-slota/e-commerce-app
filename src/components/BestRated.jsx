@@ -95,9 +95,8 @@ const Info = styled.div`
 
 const RatingWrapper = styled.div`
   display: flex;
- 
   p {
-    opacity: 0.5;
+    color: 	rgb(79, 79, 79);
   }
 `;
 

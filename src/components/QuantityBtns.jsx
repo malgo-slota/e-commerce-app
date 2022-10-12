@@ -38,12 +38,12 @@ class QuantityBtns extends Component {
     render() {
         return ( 
             <Wrapper>
-                <button onClick={this.decreaseQuantity}>
+                <button aria-label="decrease quantity" onClick={this.decreaseQuantity}>
                     <AiOutlineMinus />
                 </button>
                 {/*for the moment quantity value do not affect price*/}
-                <input type="number" value={this.state.quantity} onChange={this.handleChange} />
-                <button onClick = {this.incrementQuantity}>
+                <input type="number" aria-label="quantity" value={this.state.quantity} onChange={this.handleChange}/>
+                <button aria-label="increase quantity" onClick = {this.incrementQuantity}>
                     <AiOutlinePlus />
                 </button>
             </Wrapper>

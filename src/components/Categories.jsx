@@ -26,27 +26,27 @@ function Categories () {
             <Grid>
                 <Category>
                     <img src="images/pexels-andrea-piacquadio-774909.jpg" alt="pexels-andrea-piacquadio-774909"/>
-                    <Link to="/products/category/women's%20clothing">
-                        <button>Women's</button>
-                    </Link>   
+                    <CategoryLink aria-label="shop category women" to="/products/category/women's%20clothing">
+                        Women's
+                    </CategoryLink>
                 </Category>
                 <Category>
                     <img src="images/pexels-jackson-david-3147528.jpg" alt="pexels-jackson-david-3147528"/>
-                    <Link to="/products/category/men's%20clothing">
-                        <button>Men's</button>
-                    </Link>
+                    <CategoryLink aria-label="shop category men" to="/products/category/men's%20clothing">
+                        Men's
+                    </CategoryLink>
                 </Category>
                 <Category>
                     <img src="images/pexels-ron-lach-10121693.jpg" alt="pexels-ron-lach-10121693"/>
-                    <Link to="/products/category/jewelery">
-                        <button>Jewellery</button>
-                    </Link>
+                    <CategoryLink aria-label="shop category jewellery" to="/products/category/jewelery">
+                        Jewellery
+                    </CategoryLink>
                 </Category>
                 <Category>
                     <img src="images/pexels-athena-2582935.jpg" alt="pexels-athena-2582935"/>
-                    <Link to="/products/category/electronics">
-                        <button>Electronics</button>
-                    </Link>
+                    <CategoryLink aria-label="shop category electronics" to="/products/category/electronics">
+                       Electronics
+                    </CategoryLink>
                 </Category>
             </Grid> 
         </Wrapper>
@@ -78,22 +78,24 @@ const Category = styled.div`
         height: 28rem;
         object-fit: scale-down;
     }
-    button {
-        padding: 1rem;
-        position: absolute;
-        right: 1rem;
-        bottom: 2rem;
-        border: none;
-        font-size: 1.3rem;
-        background: rgb(160, 191, 48);
-        color: rgb(242, 242, 242);
-        transition: .1s linear;
-        :hover {
-            transform: scale(1.1);
-        }
-        @media (min-width: 768px) {
-            right: 0;
-        }
+`;
+
+const CategoryLink = styled(Link)`
+    text-decoration: none;
+    padding: 1rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 2rem;
+    border: none;
+    font-size: 1.3rem;
+    background: rgb(73, 84, 33);
+    color: rgb(242, 242, 242);
+    transition: .1s linear;
+    :hover {
+        transform: scale(1.1);
+    }
+    @media (min-width: 768px) {
+        right: 0;
     }
 `;
 

@@ -14,22 +14,22 @@ function Header () {
 
     return (
         <Nav>
-            <Logo to="/" onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
+            <Logo aria-label="go to homepage" to="/" onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                 Store
             </Logo>   
             <NavLinks>
-                <button onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
+                <button aria-label="category menu" onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
                     {isMenuOpen ? <GrClose /> : <GiHamburgerMenu />}
                 </button>
                 <BurgerMenu isMenuOpen={isMenuOpen}/>
-                <NavLink to={"/search"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
+                <NavLink aria-label="search" to={"/search"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsSearch />
                 </NavLink>
-                <ShoppingCart to={"/cart"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
+                <ShoppingCart aria-label="shopping cart" to={"/cart"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsCart />
                     <div>{cartItems.length}</div>
                 </ShoppingCart>
-                <NavLink to={"/login"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
+                <NavLink aria-label="log in" to={"/login"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsPerson />
                 </NavLink>
             </NavLinks> 
@@ -47,7 +47,7 @@ const Nav = styled.div`
 const Logo = styled(NavLink)`
     font-family: 'Abril Fatface', cursive;
     font-size: 2rem;
-    color: rgb(160, 191, 48);
+    color: rgb(73, 84, 33);
     letter-spacing: 0.1rem;
     text-decoration: none;
 `;
@@ -84,7 +84,8 @@ const NavLinks = styled.div`
 const ShoppingCart = styled(NavLink)`
         position: relative;
     div {
-          background: rgb(160, 191, 48);
+          background: rgb(73, 84, 33);
+          color: rgb(242, 242, 242);
           border-radius: 20px;
           position: absolute;
           display: flex;

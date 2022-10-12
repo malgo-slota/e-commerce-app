@@ -87,7 +87,7 @@ const RatingWrapper = styled.div`
   transform: scale(0.8);
  
   p {
-    opacity: 0.5;
+    color: rgb(79, 79, 79);    
   }
 `;
 

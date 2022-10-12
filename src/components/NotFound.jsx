@@ -8,7 +8,7 @@ function NotFound () {
             <h1>404 NOT FOUND</h1>
             <img src="/images/undraw_dreamer_re_9tua.svg" alt="404 Page not Found" />
             <Link to={"/"}>
-                <button>Back to home page</button>
+                <button aria-label="back to homepage">Back to home page</button>
             </Link>
         </Wrapper>
     );
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
         top: 6rem;
         text-transform: uppercase;
         border: none;
-        background: rgb(160, 191, 48);
+        background: rgb(73, 84, 33);
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;

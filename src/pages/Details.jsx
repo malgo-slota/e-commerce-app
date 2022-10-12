@@ -8,20 +8,20 @@ export default function Details () {
             <Container>
                 <h1>Choose a payment method</h1>
                 <div>
-                    <input type="radio"  name="payment" id="visa"></input>
+                    <input aria-label="visa" type="radio"  name="payment" id="visa"></input>
                     <label htmlFor="visa">
                         <img src="images/visa.png" alt="visa" />
                     </label>
                 </div>
                 <div>
-                    <input type="radio" name="payment" id="paypal"></input>
-                    <label htmlFor="credit">
+                    <input aria-label="paypal" type="radio" name="payment" id="paypal"></input>
+                    <label htmlFor="paypal">
                         <img src="images/paypal.png" alt="paypal" />
                     </label>
                 </div>
-                <div>
-                    <input type="radio" name="payment" id="paypal"></input>
-                    <label htmlFor="credit">
+                <div>   
+                    <input aria-label="applepay" type="radio" name="payment" id="applepay"></input>
+                    <label htmlFor="applepay">
                         <img src="images/apple-pay.png" alt="apple pay" />
                     </label>
                 </div>
@@ -29,23 +29,23 @@ export default function Details () {
             <Container>
                 <h1>Choose a Shipping method</h1>
                 <div>
-                    <input type="radio" name="shipping" id="ups"></input>
+                    <input aria-label="UPS" type="radio" name="shipping" id="ups"></input>
                     <label htmlFor="ups">
                         <img src="images/ups.png" alt="ups" />
                     </label>
                 </div>
                 <div>
-                    <input type="radio" name="shipping" id="fedex"></input>
+                    <input aria-label="fedex" type="radio" name="shipping" id="fedex"></input>
                     <label htmlFor="fedex">
                         <img src="images/fedex.png" alt="fedex" />
                     </label>
                 </div>
                 <div>
-                    <input type="radio" name="shipping" id="instore"></input>
+                    <input aria-label="instore pickup" type="radio" name="shipping" id="instore"></input>
                     <label htmlFor="instore">In store pickup</label>
                 </div>
             </Container>
-            <Proceed to={"/summary"}>Proceed to Summary</Proceed>             
+            <Proceed aria-label="proceed to summary" to={"/summary"}>Proceed to Summary</Proceed>             
         </Wrapper>
     );
 }
@@ -88,14 +88,14 @@ const Proceed = styled(NavLink)`
         margin-top: 1rem;
         text-align: center;
         padding: 1rem;
-        background: rgb(160, 191, 48);
+        background: rgb(73, 84, 33);
         color: rgb(242, 242,242);
         font-size: 1.2rem;
         letter-spacing: 0.1rem;
         transition: 0.4s linear;
-        border: 1px solid rgb(160, 191, 48);
+        border: 1px solid rgb(73, 84, 33);
         :hover {
         background: none;
-        color: rgb(160, 191, 48);
+        color: rgb(73, 84, 33);
       }
 `;
