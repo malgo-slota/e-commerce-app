@@ -54,7 +54,7 @@ export default function Shipping () {
                                 />
                     <FormInput name="zip" 
                                 type="text"
-                                inputmode="numeric" 
+                                inputMode="numeric" 
                                 label="Zip/Postal Code" 
                                 pattern="[0-9]{2}\-[0-9]{3}"
                                 errorMessage="This filed is required, and should contain olny numbers"

@@ -15,8 +15,9 @@ function FormInput (props) {
             <input type={props.type}    
                     name={props.name}
                     id={props.name}
+                    placeholder={props.placeholder}
                     pattern={props.pattern}
-                    inputmode={props.inputmode}
+                    inputMode={props.inputMode}
                     onBlur={handleFocus}
                     focused={focused.toString()}
                     aria-required="true"
@@ -40,6 +41,9 @@ const Wrapper = styled.div`
         outline: none;
         line-height: 3rem;
         font-size: 1.2rem;
+         ::placeholder {
+            font-size: 1rem;
+        }
     }
     span {
         color: rgb(237,65,52);
@@ -53,6 +57,10 @@ const Wrapper = styled.div`
             display: flex;
             gap: 0.2rem;
             padding: 0.2rem;
+            svg {
+                position: relative;
+                transform: none;
+            }
     }
 `;
 
