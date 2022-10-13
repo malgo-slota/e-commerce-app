@@ -4,14 +4,16 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 //components
 import Buttons from '../components/Buttons';
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
 function CategoryShopSection () {
-
+    const [isLoading, setLoading] = useState(false);
     const [category, setCategory] = useState([]);
     let params = useParams();
 
     useEffect(() => {   
+        setLoading(true);
         getCategory();
     },[params.category]);
 
@@ -21,9 +23,13 @@ function CategoryShopSection () {
         );
         const data = await api.json();
         setCategory(data);
+        setLoading(false);
     }
-    
-    return (
+
+    if(isLoading){
+        return <LoadingSpinner/>
+    }   else {
+        return (
         <section>
             <Grid>
                   {category.map((product) => {
@@ -44,6 +50,9 @@ function CategoryShopSection () {
             </Grid>
         </section>
     );
+    }
+    
+    
 }
 
 const Grid = styled.div`

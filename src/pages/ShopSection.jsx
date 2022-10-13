@@ -3,13 +3,15 @@ import Rating from '@mui/material/Rating';
 import styled from 'styled-components';
 //components
 import Buttons from '../components/Buttons';
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
 function ShopSection () {
-
+    const [isLoading, setLoading] = useState(false);
     const [allProducts, setAllProducts] = useState([]);
 
    useEffect(() => {   
+        setLoading(true);
         getAllProducts();
     },[]);
 
@@ -19,30 +21,33 @@ function ShopSection () {
         );
         const data = await api.json();
         setAllProducts(data);
+        setLoading(false);
     }
-    
-
-    return (
-        <section>
-            <Grid>
-                  {allProducts.map((product) => {
-                    return (
-                        <ItemWrapper key={product.id}>
-                            <img src={product.image} alt={product.title}/>
-                            <Buttons id={product.id} image={product.image} title={product.title} price={product.price}/>
-                            <Info>
-                                <p>{product.price}$</p>
-                                <RatingWrapper>
-                                    <Rating name="read-only" value={product.rating.rate} precision={0.5} readOnly />
-                                    <p>({product.rating.count})</p>
-                                </RatingWrapper>
-                            </Info>
-                        </ItemWrapper>
-                    );
-                })}
-            </Grid>
-        </section>
-    );
+    if(isLoading) {
+        return <LoadingSpinner />
+    } else {
+        return (
+            <section>
+                <Grid>
+                    {allProducts.map((product) => {
+                        return (
+                            <ItemWrapper key={product.id}>
+                                <img src={product.image} alt={product.title}/>
+                                <Buttons id={product.id} image={product.image} title={product.title} price={product.price}/>
+                                <Info>
+                                    <p>{product.price}$</p>
+                                    <RatingWrapper>
+                                        <Rating name="read-only" value={product.rating.rate} precision={0.5} readOnly />
+                                        <p>({product.rating.count})</p>
+                                    </RatingWrapper>
+                                </Info>
+                            </ItemWrapper>
+                        );
+                    })}
+                </Grid>
+            </section>
+        );
+    }
 }
 
 const Grid = styled.div`

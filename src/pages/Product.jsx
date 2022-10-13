@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext} from "react";
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CartContext from '../CartContext';
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function Product() {
     const { addToCart } = useContext(CartContext);
+    const [isLoading, setLoading] = useState(false);
 
     const [product, setProduct] = useState({});
     let params = useParams();
@@ -15,25 +17,31 @@ function Product() {
             );
         const details = await data.json();
         setProduct(details);
+        setLoading(false);
     };
 
     useEffect(() => {
+        setLoading(true);
         getProductDetails();
     },[params.id]);
 
-    return (
-       <Wrapper>
-            <img src={product.image} alt={product.title} />
-            <h1>{product.title}</h1>
-            <Desc>
-                {product.description}
-            </Desc>
-            <p>{product.price}$</p>
-            <button onClick={() => addToCart(product.id, product.image, product.title, product.price)}>
-                Add to cart
-            </button>
-       </Wrapper>
-    );
+    if(isLoading){
+        return <LoadingSpinner />
+    } else {
+        return (
+            <Wrapper>
+                    <img src={product.image} alt={product.title} />
+                    <h1>{product.title}</h1>
+                    <Desc>
+                        {product.description}
+                    </Desc>
+                    <p>{product.price}$</p>
+                    <button onClick={() => addToCart(product.id, product.image, product.title, product.price)}>
+                        Add to cart
+                    </button>
+            </Wrapper>
+        );
+    }
 }
 
 const Wrapper = styled.div`
