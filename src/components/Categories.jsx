@@ -25,25 +25,25 @@ function Categories () {
             <h2>Shop by category</h2>
             <Grid>
                 <Category>
-                    <img src="images/pexels-andrea-piacquadio-774909.jpg" alt="pexels-andrea-piacquadio-774909"/>
+                    <img src="images/Optimized-pexels-andrea-piacquadio-774909.jpg" alt="pexels-andrea-piacquadio-774909"/>
                     <CategoryLink aria-label="shop category women" to="/products/category/women's%20clothing">
                         Women's
                     </CategoryLink>
                 </Category>
                 <Category>
-                    <img src="images/pexels-jackson-david-3147528.jpg" alt="pexels-jackson-david-3147528"/>
+                    <img src="images/Optimized-pexels-jackson-david-3147528.jpg" alt="pexels-jackson-david-3147528"/>
                     <CategoryLink aria-label="shop category men" to="/products/category/men's%20clothing">
                         Men's
                     </CategoryLink>
                 </Category>
                 <Category>
-                    <img src="images/pexels-ron-lach-10121693.jpg" alt="pexels-ron-lach-10121693"/>
+                    <img src="images/Optimized-pexels-ron-lach-10121693.jpg" alt="pexels-ron-lach-10121693"/>
                     <CategoryLink aria-label="shop category jewellery" to="/products/category/jewelery">
                         Jewellery
                     </CategoryLink>
                 </Category>
                 <Category>
-                    <img src="images/pexels-athena-2582935.jpg" alt="pexels-athena-2582935"/>
+                    <img src="images/Optimized-pexels-athena-2582935.jpg" alt="pexels-athena-2582935"/>
                     <CategoryLink aria-label="shop category electronics" to="/products/category/electronics">
                        Electronics
                     </CategoryLink>
