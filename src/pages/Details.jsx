@@ -1,14 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function Details () {
+    
+const navigate = useNavigate();
+
+const handleSubmit= (e) => {
+        e.preventDefault();
+        navigate('/summary');
+};
+
     return (
-        <Wrapper>
+        <Wrapper onSubmit={handleSubmit}>
             <Container>
                 <h1>Choose a payment method</h1>
                 <div>
-                    <input aria-label="visa" type="radio"  name="payment" id="visa"></input>
+                    <input aria-label="visa" type="radio"  name="payment" id="visa" required></input>
                     <label htmlFor="visa">
                         <img src="images/visa.png" alt="visa" />
                     </label>
@@ -29,7 +37,7 @@ export default function Details () {
             <Container>
                 <h1>Choose a Shipping method</h1>
                 <div>
-                    <input aria-label="UPS" type="radio" name="shipping" id="ups"></input>
+                    <input aria-label="UPS" type="radio" name="shipping" id="ups" required></input>
                     <label htmlFor="ups">
                         <img src="images/ups.png" alt="ups" />
                     </label>
@@ -45,7 +53,7 @@ export default function Details () {
                     <label htmlFor="instore">In store pickup</label>
                 </div>
             </Container>
-            <Proceed aria-label="proceed to summary" to={"/summary"}>Proceed to Summary</Proceed>             
+            <Proceed aria-label="proceed to summary">Proceed to Summary</Proceed>             
         </Wrapper>
     );
 }
@@ -82,7 +90,7 @@ const Container = styled.div`
     }
 `;
 
-const Proceed = styled(NavLink)`
+const Proceed = styled.button`
      text-decoration: none;
         text-transform: uppercase;
         margin-top: 1rem;
