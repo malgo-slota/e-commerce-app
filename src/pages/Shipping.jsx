@@ -1,87 +1,102 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import FormInput from "../components/FormInput";
+import Steps from "../components/Steps";
+import SummaryContext from '../SummaryContext';
 
 
 export default function Shipping () {
+
+    const { setAdress } = useContext(SummaryContext);
     const navigate = useNavigate();
-
-
+ 
    const handleSubmit= (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
-        console.log(Object.fromEntries(data.entries()));
-
+        setAdress(Object.fromEntries(data.entries()));
         navigate('/details');
-
    };
 
     return (
-        <Wrapper>
-            <form onSubmit={handleSubmit}>
-                <h2>Customer information</h2>
-                <p>Already have an account? 
-                    <NavLink to={"/login"}>Log in</NavLink>
-                </p>
-                <FormInput name="email" 
-                            type="email" 
-                            label="Email" 
-                            errorMessage="Invalid email"
-                            />
-                
-                <h2>Shipping address</h2>
-                <FormInput name="firstname" 
-                            type="text" 
-                            label="First Name" 
-                            errorMessage="This field is required"
-                            />
-                <FormInput name="lastname" 
-                            type="text" 
-                            label="Last Name" 
-                            errorMessage="This field is required"
-                            />
-                <FormInput name="street" 
-                            type="text" 
-                            label="Adress" 
-                            errorMessage="This field is required"
-                            />
-                <Row>
-                    <FormInput name="city" 
+        <div>
+            <StepsWrapper>
+                <Steps />
+            </StepsWrapper>
+            <Wrapper>
+                <form onSubmit={handleSubmit}>
+                    <h2>Customer information</h2>
+                    <p>Already have an account? 
+                        <NavLink to={"/login"}>Log in</NavLink>
+                    </p>
+                    <FormInput name="email" 
+                                type="email" 
+                                label="Email" 
+                                errorMessage="Invalid email"
+                                />
+                    
+                    <h2>Shipping address</h2>
+                    <FormInput name="firstname" 
                                 type="text" 
-                                label="City" 
+                                label="First Name" 
                                 errorMessage="This field is required"
                                 />
-                    <FormInput name="zip" 
-                                type="text"
-                                inputMode="numeric" 
-                                label="Zip/Postal Code" 
-                                pattern="[0-9]{2}\-[0-9]{3}"
-                                errorMessage="This filed is required, and should contain olny numbers"
+                    <FormInput name="lastname" 
+                                type="text" 
+                                label="Last Name" 
+                                errorMessage="This field is required"
                                 />
-                </Row>
-                <FormInput name="country" 
-                            type="text" 
-                            label="Country"
-                            pattern="[A-Za-z ]{1,32}"
-                            errorMessage="This field is required"
-                            />
-                <FormInput name="phone" 
-                            type="tel" 
-                            label="Phone"
-                            pattern="/(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/"
-                            errorMessage="Invalid phone number"
-                            />
-                <NavLink to={"/cart"}>Return to cart</NavLink> 
-                <SubmitBtn aria-label="submit">Submit</SubmitBtn>
-            </form> 
-        </Wrapper>
+                    <FormInput name="street" 
+                                type="text" 
+                                label="Adress" 
+                                errorMessage="This field is required"
+                                />
+                    <Row>
+                        <FormInput name="city" 
+                                    type="text" 
+                                    label="City" 
+                                    errorMessage="This field is required"
+                                    />
+                        <FormInput name="zip" 
+                                    type="text"
+                                    inputMode="numeric" 
+                                    label="Zip/Postal Code" 
+                                    pattern="[0-9]{2}\-[0-9]{3}"
+                                    errorMessage="This filed is required, and should contain olny numbers"
+                                    />
+                    </Row>
+                    <FormInput name="country" 
+                                type="text" 
+                                label="Country"
+                                pattern="[A-Za-z ]{1,32}"
+                                errorMessage="This field is required"
+                                />
+                    <FormInput name="phone" 
+                                type="tel" 
+                                label="Phone"
+                                pattern="/(\(?([\d \-\)\–\+\/\(]+){6,}\)?([ .\-–\/]?)([\d]+))/"
+                                errorMessage="Invalid phone number"
+                                />
+                    <NavLink to={"/cart"}>Return to cart</NavLink> 
+                    <SubmitBtn aria-label="submit">Submit</SubmitBtn>
+                </form> 
+            </Wrapper>
+        </div>
     );
 }
 
+const StepsWrapper = styled.div`
+    span {
+        :nth-child(2) {
+            background: rgb(73, 84, 33);
+        }
+    }    
+`;
+
 const Wrapper = styled.div`
-    padding: 0 1rem;
-    margin-top: 4rem;
+    box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
+    padding: 3rem 2rem;
+    margin: 2rem 1rem 0rem 1rem;
     form {
         display: flex;
         flex-direction: column;

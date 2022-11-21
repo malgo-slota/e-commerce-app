@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from 'react-router-dom';
 import CartContext from '../CartContext';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import QuantityBtns from "../components/QuantityBtns";
 
+
 function Cart () {
 
-    const { cartItems, removeFromCart } = useContext(CartContext);
-    
+    const { cartItems, removeFromCart} = useContext(CartContext);
+    // const [ prices, setPrices ] = useState([]);
     const cartTotal = cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+
+
+    const prices = [];
 
     return (
         <Wrapper>
@@ -22,7 +26,7 @@ function Cart () {
                             <button aria-label="remove from cart" onClick={() => removeFromCart(item.id)}>
                                 <AiOutlineClose/>
                             </button>
-                            <QuantityBtns />
+                            <QuantityBtns price={item.price}/>
                             <Price>{item.price}$</Price>
                         </Item>    
                     ); 

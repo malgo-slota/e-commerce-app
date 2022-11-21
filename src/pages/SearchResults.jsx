@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from 'styled-components';
 import Rating from '@mui/material/Rating';
 //components
-import SearchBar from "../components/SearchBar";
 import Buttons from '../components/Buttons';
+import SearchContext from "../SearchContext";
 
 function SearchResults () {
-    const [input, setInput] = useState("");
+    const { searchInput } = useContext(SearchContext);
     const [searchResult, setSearchResult] = useState([]);
    
     const getSearchResult = async () => {
@@ -19,18 +19,16 @@ function SearchResults () {
     
     useEffect(() => {
         getSearchResult();
-    },[input]);
+    },[searchInput]);
 
     return (
         <div>
-            <SearchBar input={input} 
-                        setInput={setInput} />
             <Wrapper>
                 {searchResult.map(item => {
-                    const tags = item.title.trim().toLowerCase().split(" ");
+                    const tags = item.title.trim().toLowerCase().split(" ");    
                     return (
                         <div>
-                            {tags.filter(word => word === input.toLowerCase()).map(()=> {
+                            {tags.filter(word => word === searchInput.toLowerCase()).map(()=> {
                                 return(
                                     <ItemWrapper key={item.id}>
                                         <img src={item.image} alt={item.title}/>
@@ -49,13 +47,13 @@ function SearchResults () {
                         </div>
                     );
                 })}
-            </Wrapper>
+            </Wrapper> 
         </div>
     );
 }
 
 const Wrapper = styled.div`
-  margin: 0rem 1rem; 
+  margin: 3rem 1rem; 
   @media (min-width: 768px) {
         width: 30%;
         margin: 3rem auto;

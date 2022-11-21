@@ -7,10 +7,14 @@ import { NavLink } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import CartContext from '../CartContext.js';
 import BurgerMenu from "./BurgerMenu.jsx";
+import SearchBar from "./SearchBar.jsx";
+import SearchContext from "../SearchContext";
 
 function Header () {
     const { cartItems } = useContext(CartContext);
+    const { searchInput, setSearchInput, isSearchBarOpen, toggleSearchBar} = useContext(SearchContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
 
     return (
         <Nav>
@@ -18,13 +22,17 @@ function Header () {
                 Store
             </Logo>   
             <NavLinks>
-                <button aria-label="category menu" onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
+                <BurgerButton aria-label="category menu" onClick={() => isMenuOpen ? setIsMenuOpen(false) : setIsMenuOpen(true)}>
                     {isMenuOpen ? <GrClose /> : <GiHamburgerMenu />}
-                </button>
+                </BurgerButton>
                 <BurgerMenu isMenuOpen={isMenuOpen}/>
-                <NavLink aria-label="search" to={"/search"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
+                <button aria-label="search" onClick={toggleSearchBar}>
                     <BsSearch />
-                </NavLink>
+                </button>
+                <SearchBar isSearchBarOpen={isSearchBarOpen} 
+                            input={searchInput} 
+                            setInput={setSearchInput}
+                            />
                 <ShoppingCart aria-label="shopping cart" to={"/cart"} onClick={() => isMenuOpen ? setIsMenuOpen(false) : ''}>
                     <BsCart />
                     <div>{cartItems.length}</div>
@@ -58,12 +66,10 @@ const NavLinks = styled.div`
   align-items: center;
   width: 55%;
   button {
-      border: none;
-      background: none; 
-       @media (min-width: 768px){
-         display: none;
-       }    
+     border: none;
+    background: none; 
   }
+  
   a {
       color: rgb(38, 38, 38);
   }
@@ -79,6 +85,12 @@ const NavLinks = styled.div`
     width: 100%;
     gap: 2rem;
    }
+`;
+
+const BurgerButton = styled.button`
+       @media (min-width: 768px){
+         display: none;
+       }     
 `;
 
 const ShoppingCart = styled(NavLink)`

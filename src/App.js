@@ -1,6 +1,8 @@
 import React from "react";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./CartContext";
+import { SearchProvider } from './SearchContext';
+import { SummaryProvider } from "./SummaryContext";
 //components
 import Header from './components/Header';
 import Pages from './pages/Pages';
@@ -10,11 +12,15 @@ function App() {
 
   return (
     <CartProvider>
-      <BrowserRouter>
-        <Header />
-        <Pages />
-        <Footer />
-      </BrowserRouter>
+      <SearchProvider>
+        <BrowserRouter>
+          <Header />
+            <SummaryProvider>
+              <Pages />
+            </SummaryProvider>
+          <Footer />
+        </BrowserRouter>
+      </SearchProvider>
     </CartProvider>      
   );
 }

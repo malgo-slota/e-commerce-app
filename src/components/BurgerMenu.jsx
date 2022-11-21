@@ -8,19 +8,19 @@ function BurgerMenu ( { isMenuOpen }) {
     return (
        <Menu isMenuOpen={isMenuOpen}>
            <a aria-label="all products" href="/products">
-               All
+               ALL
            </a>
             <a aria-label="women's category" href="/products/category/women's%20clothing">
-                Women's
+                WOMEN'S
             </a>
             <a aria-label="men's category" href="/products/category/men's%20clothing">
-                Men's 
+                MEN'S 
             </a>
             <a aria-label="jewelery category" href="/products/category/jewelery">
-                Jewelery
+                JEWELERY
             </a>
             <a aria-label="electronics category" href="/products/category/electronics">
-                Electronics
+                ELECTRONIC'S
             </a>
         </Menu>
     );
@@ -28,7 +28,7 @@ function BurgerMenu ( { isMenuOpen }) {
 
 const Menu = styled.div`
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 3rem;
     right: 0;
     bottom: 0;
@@ -38,59 +38,58 @@ const Menu = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: space-evenly;
-    transition: transform 300ms;
+    gap: 3rem;
+    transition: transform .5s ease-in;
     transform: ${({ isMenuOpen }) => (isMenuOpen ? 'translateX(0%)' : 'translateX(-100%)')};
     a {
       position: relative;
       text-decoration: none;
       font-size: 1.4rem; 
       line-height: 3rem;
+      :nth-child(1) {
+        margin-top: 6rem;
+      }
        @media (min-width: 768px) {
                 padding: 0 0.5rem;
+                :nth-child(1) {
+                margin-top: 0rem;
+                }
         }
         ::before {
-            content: "";
+            content: '';
+            background-color: rgb(73, 84, 33);
             position: absolute;
-            right: 0rem;
-            height: 0%;
-            border-right: 5px solid rgb(73, 84, 33);
-            transition: 0.2s linear;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 0;
+            width: 30%;
+            height: 2px;
+            z-index: -1;
+            transition: all .5s ease-in-out;
             @media (min-width: 768px) {
-                border-right: 2px solid rgb(73, 84, 33);
-            }
-        }
-        ::after {
-            content: "";
-            position: absolute;
-            left: 0rem;
-            height: 0%;
-            border-left: 5px solid rgb(73, 84, 33);
-            transition: 0.2s linear;
-             @media (min-width: 768px) {
-                border-left: 2px solid rgb(73, 84, 33);
+                width: 100%;
+                background-color: rgb(242, 242, 242);
             }
         }
         :hover {
-        font-size: 1.6rem;
-            ::before {
-                right: 2rem;
-                height: 100%;
-                @media (min-width: 768px) {
-                    left: 2rem;
-                    right: 0; 
-                }
-            }
-            ::after {
-                left: 2rem;
-                height: 100%;
-                @media (min-width: 768px) {
-                    left: 0;
-                    right: 2rem;
-                }
+            color: rgb(242, 242, 242);
+            transition: all .5s ease-in-out;
+            @media (min-width: 768px) {
+                color: rgb(38, 38, 38);
             }
         }
+        :hover::before {
+                bottom: 0;
+                height: 100%;
+                font-size: 1.6rem;
+                background-color: rgb(73, 84, 33);
+                @media (min-width: 768px) {
+                    background-color: rgb(242, 242, 242);
+                }
+        }
     }
+    
     @media (min-width: 768px){
         position: static;
         height: 100%;

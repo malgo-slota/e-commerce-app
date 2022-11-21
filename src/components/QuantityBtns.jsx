@@ -1,54 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
-class QuantityBtns extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            quantity: 1,
-            min: 0
-        };
+function QuantityBtns () {
+  
+    const [quantity, setQuantity] = useState(1);
+
+    const decrease = () => {
+        if(quantity>0)
+            setQuantity(quantity - 1);
     }
 
-    incrementQuantity = () => {
-        this.setState(prevState => {
-            return {
-                quantity: prevState.quantity + 1
-            }
-        });
+    const increase = () => {
+        setQuantity(quantity + 1);
     }
+   
+    return ( 
+        <Wrapper>
+            <button aria-label="decrease quantity" onClick={decrease}>
+                <AiOutlineMinus />
+            </button>
+            {/*for the moment quantity value do not affect price*/}
+            <input type="number" aria-label="quantity" value={quantity}/>
+            <button aria-label="increase quantity" onClick={increase}>
+                <AiOutlinePlus />
+            </button>
+        </Wrapper>
+    );
 
-    decreaseQuantity = () => {
-        this.setState(prevState => {
-            if(prevState.quantity > 0) {
-                return {
-                    quantity: prevState.quantity - 1
-                }
-            } else {
-                return null;
-            }
-        });
-    }
-
-    handleChange = (e) => {
-        this.setState({quantity: e.target.value});
-    }
-
-    render() {
-        return ( 
-            <Wrapper>
-                <button aria-label="decrease quantity" onClick={this.decreaseQuantity}>
-                    <AiOutlineMinus />
-                </button>
-                {/*for the moment quantity value do not affect price*/}
-                <input type="number" aria-label="quantity" value={this.state.quantity} onChange={this.handleChange}/>
-                <button aria-label="increase quantity" onClick = {this.incrementQuantity}>
-                    <AiOutlinePlus />
-                </button>
-            </Wrapper>
-        );
-    } 
 }
 
 const Wrapper = styled.div`

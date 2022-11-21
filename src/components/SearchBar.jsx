@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useNavigate } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io'
 import styled from 'styled-components';
+import SearchContext from "../SearchContext";
 
-function SearchBar ( { input, setInput }) {
+function SearchBar () {
+
+    const { searchInput, setSearchInput, isSearchBarOpen, toggleSearchBar} = useContext(SearchContext);
     const navigate = useNavigate();
     
     const submitHandler = (e) => {
@@ -12,10 +15,10 @@ function SearchBar ( { input, setInput }) {
     };
 
     return (
-      <Wrapper onSubmit={submitHandler}>
+      <Wrapper onSubmit={submitHandler} isSearchBarOpen={isSearchBarOpen} onBlur={toggleSearchBar}>
             <SearchInput type="text" 
-                        onChange={(e) => setInput(e.target.value)}
-                        value={input} 
+                        onChange={(e) => setSearchInput(e.target.value)}
+                        value={searchInput} 
                         aria-label="insert your search"/>
             <button aria-label="search">
                 <IoIosArrowForward/>
@@ -25,21 +28,28 @@ function SearchBar ( { input, setInput }) {
 }
 
 const Wrapper = styled.form`
-    margin: 2rem auto;
-    border: 1px solid rgb(73, 84, 33);
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    left: 0.4rem;
+    top: 0.4rem;
+    border: 1px solid rgba(73, 84, 33, 0.3);
+    width: 45%;
+    display: ${({ isSearchBarOpen }) => (isSearchBarOpen ? 'flex' : 'none')};
+    align-items: center; 
     button {
       display: flex;
       border: none;
+      
     }
     svg {
+      margin: 0;
+      padding: 0;
       font-size: 2.1rem;
       color: white;
       background: rgb(73, 84, 33);
       transition: 0.4s linear;
+      
       :hover {
         background: none;
         color: rgb(73, 84, 33);
@@ -48,6 +58,7 @@ const Wrapper = styled.form`
 `;
 
 const SearchInput = styled.input`
+    height: 2.4rem;
     padding: 0 0.5rem;
     width: 100%;
     border: none;

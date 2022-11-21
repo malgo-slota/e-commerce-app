@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Steps from '../components/Steps';
+import SummaryContext from '../SummaryContext';
 
 export default function Details () {
     
+const { setPayment, setDelivery } = useContext(SummaryContext);
+
 const navigate = useNavigate();
 
 const handleSubmit= (e) => {
@@ -11,55 +15,77 @@ const handleSubmit= (e) => {
         navigate('/summary');
 };
 
+const handlePaymentChange = (e) => {
+    setPayment(e.target.value);
+}
+const handleDeliveryChange = (e) => {
+    setDelivery(e.target.value);
+}
+
     return (
-        <Wrapper onSubmit={handleSubmit}>
-            <Container>
-                <h1>Choose a payment method</h1>
-                <div>
-                    <input aria-label="visa" type="radio"  name="payment" id="visa" required></input>
-                    <label htmlFor="visa">
-                        <img src="images/visa.png" alt="visa" />
-                    </label>
-                </div>
-                <div>
-                    <input aria-label="paypal" type="radio" name="payment" id="paypal"></input>
-                    <label htmlFor="paypal">
-                        <img src="images/paypal.png" alt="paypal" />
-                    </label>
-                </div>
-                <div>   
-                    <input aria-label="applepay" type="radio" name="payment" id="applepay"></input>
-                    <label htmlFor="applepay">
-                        <img src="images/apple-pay.png" alt="apple pay" />
-                    </label>
-                </div>
-            </Container>
-            <Container>
-                <h1>Choose a Shipping method</h1>
-                <div>
-                    <input aria-label="UPS" type="radio" name="shipping" id="ups" required></input>
-                    <label htmlFor="ups">
-                        <img src="images/ups.png" alt="ups" />
-                    </label>
-                </div>
-                <div>
-                    <input aria-label="fedex" type="radio" name="shipping" id="fedex"></input>
-                    <label htmlFor="fedex">
-                        <img src="images/fedex.png" alt="fedex" />
-                    </label>
-                </div>
-                <div>
-                    <input aria-label="instore pickup" type="radio" name="shipping" id="instore"></input>
-                    <label htmlFor="instore">In store pickup</label>
-                </div>
-            </Container>
-            <Proceed aria-label="proceed to summary">Proceed to Summary</Proceed>             
-        </Wrapper>
+        <div>
+             <StepsWrapper>
+                <Steps />
+            </StepsWrapper>
+            <Wrapper onSubmit={handleSubmit}>
+                <Container>
+                    <h1>Choose a payment method</h1>
+                    <div>
+                        <input aria-label="visa" type="radio" value="Visa" name="payment" id="visa" required  onChange={handlePaymentChange}></input>
+                        <label htmlFor="visa">
+                            <img src="images/visa.png" alt="visa" />
+                        </label>
+                    </div>
+                    <div>
+                        <input aria-label="paypal" type="radio" value="PayPal" name="payment" id="paypal" onChange={handlePaymentChange}></input>
+                        <label htmlFor="paypal">
+                            <img src="images/paypal.png" alt="paypal" />
+                        </label>
+                    </div>
+                    <div>   
+                        <input aria-label="applepay" type="radio" value="Apple pay" name="payment" id="applepay" onChange={handlePaymentChange}></input>
+                        <label htmlFor="applepay">
+                            <img src="images/apple-pay.png" alt="apple pay" />
+                        </label>
+                    </div>
+                </Container>
+                <Container>
+                    <h1>Choose a Shipping method</h1>
+                    <div>
+                        <input aria-label="UPS" type="radio" name="shipping" id="ups" value="UPS" required onChange={handleDeliveryChange}></input>
+                        <label htmlFor="ups">
+                            <img src="images/ups.png" alt="ups" />
+                        </label>
+                    </div>
+                    <div>
+                        <input aria-label="fedex" type="radio" name="shipping" id="fedex" value="FedEx" onChange={handleDeliveryChange}></input>
+                        <label htmlFor="fedex">
+                            <img src="images/fedex.png" alt="fedex" />
+                        </label>
+                    </div>
+                    <div>
+                        <input aria-label="instore pickup" type="radio" name="shipping" value="Instore pickup" id="instore" onChange={handleDeliveryChange}></input>
+                        <label htmlFor="instore">
+                            <img src="images/location.png" alt="instore pickup" />
+                        </label>
+                    </div>
+                </Container>
+                <Proceed aria-label="proceed to summary">Proceed to Summary</Proceed>             
+            </Wrapper>
+        </div>
     );
 }
 
+const StepsWrapper = styled.div`
+    span {
+        :nth-child(3) {
+            background: rgb(73, 84, 33);
+        }
+    }    
+`;
+
 const Wrapper = styled.form`
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   padding: 1rem;

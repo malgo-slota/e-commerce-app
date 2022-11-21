@@ -31,11 +31,11 @@ function Product() {
         return (
             <Wrapper>
                     <img src={product.image} alt={product.title} />
-                    <h1>{product.title}</h1>
+                    <p>{product.title}</p>
+                    <span>{product.price}$</span>
                     <Desc>
                         {product.description}
                     </Desc>
-                    <p>{product.price}$</p>
                     <button onClick={() => addToCart(product.id, product.image, product.title, product.price)}>
                         Add to cart
                     </button>
@@ -45,20 +45,26 @@ function Product() {
 }
 
 const Wrapper = styled.div`
-    margin-top: 5rem;
+    margin: 6rem 2rem 0rem 2rem;
+    padding:  3rem 2rem;
+    box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    @media (min-width: 768px){
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        margin: 5rem 8rem 0rem 8rem;
-    }
-    img{
-        width: 100%;
+        @media (min-width: 768px){
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            margin: 5rem 10rem 0rem 10rem;
+        }
+    img {
+        width: 60%;
+        margin: 0 auto;
         @media (min-width: 768px){
             grid-row: 1 / span 4;
         }
+    }
+    p {
+        font-size: 1.4rem;
     }
     button {
         padding: 1rem;
@@ -73,7 +79,7 @@ const Wrapper = styled.div`
             color: rgb(73, 84, 33);
         }
     }
-    p {
+    span {
         font-size: 2rem;
     }
 `;
