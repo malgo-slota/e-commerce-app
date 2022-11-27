@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from 'react-router-dom';
 import CartContext from '../CartContext';
 import styled from 'styled-components';
@@ -9,11 +9,7 @@ import QuantityBtns from "../components/QuantityBtns";
 function Cart () {
 
     const { cartItems, removeFromCart} = useContext(CartContext);
-    // const [ prices, setPrices ] = useState([]);
     const cartTotal = cartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
-
-
-    const prices = [];
 
     return (
         <Wrapper>

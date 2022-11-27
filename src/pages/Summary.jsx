@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import Steps from "../components/Steps";
 import SummaryContext from "../SummaryContext";
@@ -8,9 +8,19 @@ import CartContext from "../CartContext";
 
 export default function Summary () {
 
+    const navigate = useNavigate();
 
     const { adress, delivery, payment } = useContext(SummaryContext);
-    const { cartItems } = useContext(CartContext);
+    const { cartItems, clearCart } = useContext(CartContext);
+    const [modalDisplay, setModalDisplay] = useState(false);
+
+    const handlePlaceOrder = () => {
+        clearCart();
+        setModalDisplay(true);
+        setTimeout(() => {
+            navigate('/');
+        }, "1000")
+    }
 
     return (
         <div>
@@ -34,7 +44,6 @@ export default function Summary () {
                                     </div>    
                                 );
                             })}
-                            {/* <span>Total</span> */}
                         </CartSummary>
                         <div>
                             <ShippingSummary>
@@ -75,12 +84,12 @@ export default function Summary () {
                             </DetailSummary>
                             <ButtonsContainer>
                                 <NavLink to={"/cart"}>Return to cart</NavLink>
-                                <NavLink to={"/"}>Place order</NavLink>
+                                <button onClick={handlePlaceOrder}>Place order</button>
                             </ButtonsContainer>
                         </div>
                     </Row>
                 </div>
-                
+                {modalDisplay ? <Modal>Thank you</Modal> : ''}
             </Wrapper>
         </div>
     );
@@ -103,7 +112,7 @@ const Wrapper = styled.div`
         text-align: center;
         margin-bottom: 1.5rem;
     }
-    a {
+    a, button {
         text-decoration: none;
         text-transform: uppercase;
         margin-top: 1rem;
@@ -121,6 +130,24 @@ const Wrapper = styled.div`
       }
     }  
 `;
+
+const Modal = styled.div`
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+    padding: 2rem;
+    width: 90%;
+    height: 80%;
+    background: rgb(255, 255, 255);
+    font-size: 2rem;
+    box-shadow: 2px 0px 12px 2px rgba(20,22,38, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 
 const Row = styled.div`
     display: flex;
