@@ -27,8 +27,10 @@ export default function Summary () {
                                     <div key={item.id}>
                                         <img src={item.image} alt={item.title} /> 
                                         <span>{item.title}</span> 
-                                        <span>{item.price}$</span>
-                                        <span>x 1</span>
+                                        <div>
+                                            <span>{item.price}$</span>
+                                            <span>x 1</span>
+                                        </div>                                        
                                     </div>    
                                 );
                             })}
@@ -137,16 +139,26 @@ const CartSummary = styled.div`
     }
     div {
         display: grid;
-        gap: 0.4rem;
-        grid-template-columns: 1fr 6fr 1fr 0.5fr;
+        gap: 0.8rem;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: 1fr 1fr;
         align-items: center;
         padding: 0.4rem 0;
         border-bottom: 1px solid rgb(193,192,192);
          :last-child {
             border: none;
         }   
+        div {
+            grid-area: 2 / 2;
+            width: 100%;
+            color:rgb(193, 192, 192);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
         img {
-            width: 90%;
+            width: 100%;
+            grid-row: 1 / span 2;
         }      
     }
 `;

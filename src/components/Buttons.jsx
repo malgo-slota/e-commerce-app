@@ -33,6 +33,7 @@ const ButtonsWrapper = styled.div`
             opacity: 1;
         }
     button {
+        color: rgb(0, 0, 0);
         background: rgb(242, 242, 242);
         border-radius: 50%;
         border: none;

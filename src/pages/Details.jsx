@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Steps from '../components/Steps';
 import SummaryContext from '../SummaryContext';
 
+
 export default function Details () {
     
 const { setPayment, setDelivery } = useContext(SummaryContext);

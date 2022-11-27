@@ -66,10 +66,10 @@ const NavLinks = styled.div`
   align-items: center;
   width: 55%;
   button {
-     border: none;
+    color: rgb(0, 0, 0);
+    border: none;
     background: none; 
   }
-  
   a {
       color: rgb(38, 38, 38);
   }

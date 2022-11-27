@@ -71,6 +71,7 @@ const Item = styled.div`
       width: 100%;
     } 
     button {
+        color: rgb(0, 0, 0);
         background: none;
         border: none;
         svg{

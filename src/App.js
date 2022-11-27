@@ -7,6 +7,7 @@ import { SummaryProvider } from "./SummaryContext";
 import Header from './components/Header';
 import Pages from './pages/Pages';
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <BrowserRouter>
           <Header />
             <SummaryProvider>
+              <ScrollToTop />
               <Pages />
             </SummaryProvider>
           <Footer />
